@@ -139,28 +139,34 @@ log-likelihoods](TabProflik).
 
 ## Reference prior for the correlation parameters [not implemented yet]
 
-For the case when no nugget or noise is used,
-{cite:authors}`BergerAtAl_ObjectiveBayesSpatial` define the reference joint
-prior for $\bs{\theta}$ and $\sigma^2$ in relation to the
-integrated likelihood where only the trend parameter
-$\bs{\beta}$ is marginalized out, that is 
-$p(\m{y} \, \vert \, \bs{\theta}, \, \sigma^2) \, = \int
-p(\m{y} \, \vert \, \bs{\theta}, \, \sigma^2, \, \bs{\beta}) \,
-\text{d}\bs{\beta}$ and they show that it has the form
+In this section we consider the case when no nugget or noise is
+used. In the case of an isotropic covariance kernel depending on a
+scalar range {cite:authors}`BergerAtAl_ObjectiveBayesSpatial` have
+defined the reference joint prior for $\bs{\theta}$ and $\sigma^2$ in
+relation to the integrated likelihood where only the trend parameter
+$\bs{\beta}$ is marginalized out, that is $p(\m{y} \, \vert \,
+\bs{\theta}, \, \sigma^2) \, = \int p(\m{y} \, \vert \, \bs{\theta},
+\, \sigma^2, \, \bs{\beta}) \, \text{d}\bs{\beta}$ and they have shown
+that it has the form
 
 $$
   \pi_{\texttt{ref}}(\bs{\theta},\, \sigma^2) %% = \left|\m{I}^\star(\sigma^2,\, \bs{\theta})\right|^{1/2}
   = \frac{\pi_{\texttt{ref}}(\bs{\theta})}{\sigma^2}
 $$
 
-where $\pi_{\texttt{ref}}(\bs{\theta})$ no longer depends on $\sigma^2$.
+where $\pi_{\texttt{ref}}(\bs{\theta})$ no longer depends on
+$\sigma^2$. This result has been extended by {cite:t}`Paulo_PriorGP` and
+{cite:t}`GuEtAl_RobusGaSp` to the case of a so-called *separable*
+covariance Kernel depending of a vector $\bs{\theta}$ of $d$
+correlation ranges. This notion corresponds to the tensor product
+kernel used in the **`Kriging`** models of **libKriging**.
 
 We now give some hints on the derivation and the computation of the
-reference prior. Let
-$\m{I}^\star(\bs{\theta},\,\sigma^2)$ be the $(d+1)
+reference prior for a **`Kriging`** model in which a tensor product kernel
+is used. Let $\m{I}^\star(\bs{\theta},\,\sigma^2)$ be the $(d+1)
 \times (d+1)$ Fisher information matrix based on the marginal
-log-likelihood $\ell_{\texttt{marg}}(\bs{\theta},\,\sigma^2) =
-\log L_{\texttt{marg}}(\bs{\theta},\,\sigma^2)$
+log-likelihood $\ell_{\texttt{marg}}(\bs{\theta},\,\sigma^2) = \log
+L_{\texttt{marg}}(\bs{\theta},\,\sigma^2)$
 
 $$
   \m{I}^\star(\bs{\theta},\, \sigma^2) := 
@@ -184,56 +190,69 @@ $$
 $$
 
 One can show that this information matrix can be expressed by using
-the $n \times n$ symmetric matrices $\m{N}_k := \m{L}^{-1}
-\left[\partial_{\theta_k} \m{R}\right] \m{L}^{-\top}$ where
-$\m{L}$ is the lower Cholesky root of the correlation matrix
-according to
+the $n \times n$ matrices $\m{N}_k := \left[\partial_{\theta_k}
+\m{R}\right] \mathring{\m{B}}$ where as above $\mathring{\m{B}}$ is
+the scaled bending energy matrix and $\partial_{\theta_k} \m{R}$ is
+the derivative of the correlation matrix w.r.t. the range
+$\theta_k$. The three blocks write as
 
 $$
   \m{H} = \frac{1}{2}\,
   \begin{bmatrix}
     \text{tr}(\m{N}_1\m{N}_1)   & \text{tr}(\m{N}_1\m{N}_2)
-    & \dots & \text{tr}(\m{N}_1\m{N}_p) \\
+    & \dots & \text{tr}(\m{N}_1\m{N}_d) \\
     \text{tr}(\m{N}_2\m{N}_1)   & \text{tr}(\m{N}_2\m{N}_2)
-    & \dots & \text{tr}(\m{N}_2\m{N}_p) \\
+    & \dots & \text{tr}(\m{N}_2\m{N}_d) \\
     \vdots  & \vdots  & &  \vdots \\
     \text{tr}(\m{N}_p\m{N}_1)   & \text{tr}(\m{N}_p\m{N}_2)
-    & \dots & \text{tr}(\m{N}_p\m{N}_p) 
+    & \dots & \text{tr}(\m{N}_p\m{N}_d) 
   \end{bmatrix}, \quad
   \m{u} = \frac{1}{2 \sigma^2}\,
   \begin{bmatrix}
     \text{tr}(\m{N}_1)\\
     \text{tr}(\m{N}_2) \\
     \vdots\\
-    \text{tr}(\m{N}_p) 
+    \text{tr}(\m{N}_d) 
   \end{bmatrix}, \qquad
   b = \frac{n - p}{2 \sigma^4}.
 $$
 
 By multiplying by $\sigma^2$ both the last row and the last column of
-$\m{I}^\star(\bs{\theta}, \, \sigma^2)$ corresponding to
-$\sigma^2$, we get a new $(d+1) \times (d+1)$ matrix say
-$\m{I}^\star(\bs{\theta})$ which no longer depends on
-$\sigma^2$, the notation $\m{I}^\star(\bs{\theta})$ being
-consistent with {cite:t}`GuEtAl_RobusGaSp`. Then
-$\pi_{\texttt{ref}}(\bs{\theta}) = \left|
-\m{I}^\star(\bs{\theta}) \right|^{1/2}$.
+$\m{I}^\star(\bs{\theta}, \, \sigma^2)$ corresponding to $\sigma^2$,
+we get a new $(d+1) \times (d+1)$ matrix say
+$\m{I}^\star(\bs{\theta})$ which no longer depends on $\sigma^2$, the
+notation $\m{I}^\star(\bs{\theta})$ being consistent with
+{cite:t}`GuEtAl_RobusGaSp`. Then $\pi_{\texttt{ref}}(\bs{\theta}) \propto
+\left| \m{I}^\star(\bs{\theta}) \right|^{1/2}$. See
+{cite:t}`Paulo_PriorGP` for details.
 
-Note that the determinant expresses as
-
-$$
+**Note** The information matrix takes the blocks in the order:
+  "$\bs{\theta}$ *then* $\sigma^2$", while the opposite order is used
+  in {cite:t}`GuEtAl_RobusGaSp`.
+  Some savings in the computation can be achieved by using
+matrices defined in the [](SecGLS) section: one can use the matrices
+$\m{M}_k := \m{L}^{-1} \left[\partial{\bs{\theta}_k}\m{R}\right]
+\m{L}^{-\top}$ which can be stored when the Cholesky decomposition of
+$\m{R}$ is computed, and the matrix $\m{Q}_{\m{F}^\dagger}$ arising
+from the QR decomposition of the modified trend matrix
+$\m{F}^\dagger$. Also, the determinant expresses as
+$
   \left| \m{I}^\star(\bs{\theta}) \right| 
   = |\m{H}| \times
   \left|n -p  - \mathring{\m{u}}^\top \m{H}^{-1} 
   \mathring{\m{u}} \right| 
-$$
+$
+where $\mathring{\m{u}} := \sigma^2 \m{u}$.
 
-where $\mathring{\m{u}} := \sigma^2 \m{u}$. See {cite:t}`Gu_Phd`
-for details.
-
-**Note**   The information matrix takes the blocks in the order:
-  "$\bs{\theta}$ *then* $\sigma^2$", while the opposite order is used
-  in {cite:t}`Gu_Phd`.
+This framework can be extended to the nugget case, see Sec. 4 of
+{cite:t}`Gu_JointlyRobust`. Then the extra variance-ratio parameter
+$\eta:=\tau^2/\sigma^2$ must be used. The reference prior factorizes as
+$\pi_{\texttt{ref}}(\bs{\theta},\,\eta,\,\sigma^2) \propto 
+\pi_{\texttt{ref}}(\bs{\theta},\,\eta)/\sigma^2$ where
+$\pi_{\texttt{ref}}(\bs{\theta},\,\eta) \propto \left|
+\m{I}^\star(\bs{\theta},\,\eta) \right|^{1/2}$ and the
+matrix $\m{I}^\star(\bs{\theta},\,\eta)$ is then $(d+2) \times (d+2)$ due to
+the extra parameter $\eta$.
 
 The reference prior suffers from its high computational cost. Indeed,
 in order to get the value of the prior density one needs the
@@ -256,7 +275,7 @@ $$
 $$
 
 where as above $\alpha := \sigma^2 / (\sigma^2 + \tau^2)$ so that the
-nugget variance ratio $\eta := \tau^2 / \sigma^2$ of
+nugget variance-ratio $\eta := \tau^2 / \sigma^2$ of
 {cite:t}`Gu_JointlyRobust` is $\eta = (1 - \alpha) / \alpha$. The JR
 prior corresponds to
 
