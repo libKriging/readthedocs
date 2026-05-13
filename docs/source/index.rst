@@ -10,6 +10,11 @@ Main features of libKriging are:
     * nugget (homoskedastic) or noise (heteroskedastic)
     * optimization of hyper-parameters (range, nugget, variance, ...) based on log-likelihood, leave-one-out, log-marginal-posterior
     * (pre-)normalization of conditional data
+* Kriging with per-variable input warping (``WarpKriging``):
+    * continuous warps: affine, Box-Cox, Kumaraswamy, monotone neural net, free MLP
+    * categorical embedding and ordinal level warps for discrete inputs
+    * joint MLP warping over all inputs (cross-variable interactions)
+    * warp and GP hyper-parameters optimised jointly (bi-level BFGS + Adam)
 * Port from and comparison/testing with some standard kriging libraries:
     * https://CRAN.R-project.org/package=DiceKriging
     * https://CRAN.R-project.org/package=RobustGaSP
@@ -23,6 +28,7 @@ Main features of libKriging are:
     * R: https://github.com/libKriging/rlibkriging
     * Octave
     * Matlab
+    * Julia
 
 Check out the :doc:`usage` section for further information, and how to :ref:`install` the project.
 
