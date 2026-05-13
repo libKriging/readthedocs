@@ -14,19 +14,19 @@ fit, plus the new input points and their values given as argument (knonw as 'upd
     ```python
     # k = Kriging(...)
     # k.simulate(nsim = 1, seed = 123, x, will_update = True)
-    k.update_simulate(y_u, X_u)
+    k.update_simulate(y_u, X_u, noise_u = None)
     ```
 * R
     ```r
     # k = Kriging(...)
     # k$simulate(nsim = 1, seed = 123, x, will_update = TRUE)
-    k$update_simulate(y_u, X_u)
+    k$update_simulate(y_u, X_u, noise_u = NULL)
     ```
 * Matlab/Octave
     ```octave
     % k = Kriging(...)
     % k.simulate(nsim = 1, seed = 123, x, will_update = true)
-    k.update_simulate(y_u, X_u)
+    k.update_simulate(y_u, X_u, noise_u = [])
     ```
 
 ## Arguments
@@ -35,6 +35,7 @@ Argument      |Description
 ------------- |----------------
 `y_u`     |     Numeric vector of new responses (output).
 `X_u`     |     Numeric matrix of new input points.
+`noise_u`     |     Optional numeric vector of noise variances for the new observations. Only used if the model was fitted with `noise`.
 
 
 ## Details

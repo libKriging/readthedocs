@@ -3,7 +3,10 @@
 
 ## Description
 
-Create a `Kriging` Object representing a Trend $+$ GP Model
+Create a `Kriging` Object representing a Trend $+$ GP Model.
+Use `noise = NULL` for noise-free interpolation, `noise = "nugget"`
+to estimate a homogeneous nugget, or a numeric vector of
+per-observation noise variances.
 
 
 ## Usage
@@ -23,7 +26,8 @@ Kriging(
   normalize = FALSE,
   optim = "BFGS",
   objective = "LL",
-  parameters = NULL
+  parameters = NULL,
+  noise = NULL
 )
 ```
 
@@ -40,6 +44,7 @@ Argument      |Description
 `optim`     |     Character giving the Optimization method used to fit hyper-parameters. Possible values are: `"BFGS"` , `"Newton"` and `"none"` , the later simply keeping the values given in `parameters` . The method `"BFGS"` uses the gradient of the objective (note that `"BGFS10"` means 10 multi-start of BFGS). The method `"Newton"` uses both the gradient and the Hessian of the objective.
 `objective`     |     Character giving the objective function to optimize. Possible values are: `"LL"` for the Log-Likelihood, `"LOO"` for the Leave-One-Out sum of squares and `"LMP"` for the Log-Marginal Posterior.
 `parameters`     |     Initial values for the hyper-parameters. When provided this must be named list with elements `"sigma2"`  and `"theta"` containing the initial value(s) for the variance and for the range parameters. If `theta` is a matrix with more than one row, each row is used as a starting point for optimization.
+`noise`     |     Either a numeric vector of per-observation noise variances, `"nugget"` to estimate a homogeneous nugget, or `NULL` (default) for noise-free interpolation.
 
 
 ## Details

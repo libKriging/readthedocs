@@ -11,17 +11,17 @@ Update a `Kriging` model object with new points (added permanently).
 * Python
     ```python
     # k = Kriging(...)
-    k.update(y_u, X_u)
+    k.update(y_u, X_u, noise_u = None)
     ```
 * R
     ```r
     # k = Kriging(...)
-    k$update(y_u, X_u)
+    k$update(y_u, X_u, noise_u = NULL)
     ```
 * Matlab/Octave
     ```octave
     % k = Kriging(...)
-    k.update(y_u, X_u)
+    k.update(y_u, X_u, noise_u = [])
     ```
 
 
@@ -31,6 +31,7 @@ Argument      |Description
 ------------- |----------------
 `y_u`     |     Numeric vector of new responses (output).
 `X_u`     |     Numeric matrix of new input points.
+`noise_u`     |     Optional numeric vector of noise variances for the new observations. Only used if the model was fitted with `noise`.
 
 
 ## Examples

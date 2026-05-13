@@ -11,17 +11,17 @@ Simulate from a `Kriging` Model Object.
 * Python
     ```python
     # k = Kriging(...)
-    k.simulate(nsim = 1, seed = 123, x)
+    k.simulate(nsim = 1, seed = 123, x, with_noise = True)
     ```
 * R
     ```r
     # k = Kriging(...)
-    k$simulate(nsim = 1, seed = 123, x)
+    k$simulate(nsim = 1, seed = 123, x, with_noise = TRUE)
     ```
 * Matlab/Octave
     ```octave
     % k = Kriging(...)
-    k.simulate(nsim = 1, seed = 123, x)
+    k.simulate(nsim = 1, seed = 123, x, with_noise = true)
     ```
 
 
@@ -32,6 +32,7 @@ Argument      |Description
 `nsim`     |     Number of simulations to perform.
 `seed`     |     Random seed used.
 `x`     |     Points in model input space where to simulate.
+`with_noise`     |     Logical or numeric. If `TRUE` (or unset), noise/nugget from the fitted model is included in simulations. If `FALSE`, pure GP paths without noise. If a numeric vector, use these as per-point noise variances.
 `will_update`     |     Set to TRUE if wish to use `update_simulate(...)` later.
 
 

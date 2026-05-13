@@ -1,5 +1,5 @@
 API
-=====
+===
 
 Following API doc supports:
 
@@ -7,13 +7,14 @@ Following API doc supports:
 * R wrapper
 * Octave wrapper
 * Matlab wrapper
+* Julia wrapper
 
 .. include:: pyrm-syntax.md
    :parser: myst_parser.sphinx_
 
 
-Contructors
------------
+Constructors
+------------
 
 .. toctree::
    :maxdepth: 1
@@ -22,17 +23,15 @@ Contructors
    functions/update.Kriging.md
    functions/copy.Kriging.md
    functions/saveload.Kriging.md
-   functions/NuggetKriging.md
-   functions/update.NuggetKriging.md
-   functions/copy.NuggetKriging.md
-   functions/saveload.NuggetKriging.md
-   functions/NoiseKriging.md
-   functions/update.NoiseKriging.md
-   functions/copy.NoiseKriging.md
-   functions/saveload.NoiseKriging.md
+   functions/WarpKriging.md
+   functions/update.WarpKriging.md
+   functions/MLPKriging.md
+   functions/update.MLPKriging.md
+   functions/copy.MLPKriging.md
+   functions/saveload.MLPKriging.md
 
 Fit objective
----------
+-------------
 
 .. toctree::
    :maxdepth: 1
@@ -45,18 +44,16 @@ Fit objective
    functions/leaveOneOutVec.Kriging.md
    functions/logMargPost.Kriging.md
    functions/logMargPostFun.Kriging.md
-   functions/fit.NuggetKriging.md
-   functions/logLikelihood.NuggetKriging.md
-   functions/logLikelihoodFun.NuggetKriging.md
-   functions/logMargPost.NuggetKriging.md
-   functions/logMargPostFun.NuggetKriging.md
-   functions/fit.NoiseKriging.md
-   functions/logLikelihood.NoiseKriging.md
-   functions/logLikelihoodFun.NoiseKriging.md
+   functions/fit.WarpKriging.md
+   functions/logLikelihood.WarpKriging.md
+   functions/logLikelihoodFun.WarpKriging.md
+   functions/fit.MLPKriging.md
+   functions/logLikelihood.MLPKriging.md
+   functions/logLikelihoodFun.MLPKriging.md
 
 
 Prediction and simulation
----------
+-------------------------
 
 .. toctree::
    :maxdepth: 1
@@ -64,9 +61,8 @@ Prediction and simulation
    functions/predict.Kriging.md
    functions/simulate.Kriging.md
    functions/update_simulate.Kriging.md
-   functions/predict.NuggetKriging.md
-   functions/simulate.NuggetKriging.md
-   functions/update_simulate.NuggetKriging.md
-   functions/predict.NoiseKriging.md
-   functions/simulate.NoiseKriging.md
-   functions/update_simulate.NoiseKriging.md
+   functions/predict.WarpKriging.md
+   functions/simulate.WarpKriging.md
+   functions/predict.MLPKriging.md
+   functions/simulate.MLPKriging.md
+   functions/update_simulate.MLPKriging.md
