@@ -1,4 +1,4 @@
-Python/R/Matlab/Octave sample, predict, simulate 1D function
+Python/R/Matlab/Octave/Julia sample, predict, simulate 1D function
 =============
 
 Any sample code below should give you these figures:
@@ -106,4 +106,37 @@ for i=1:10
    plot(x,s(:,i),'b');
 end
 hold off;
+```
+* Julia:
+```julia
+using jlibkriging
+using Plots
+
+X = [0.0, 0.25, 0.5, 0.75, 1.0]
+f(x) = 1 - 1/2 * (sin(12*x)/(1+x) + 2*cos(7*x)*x^5 + 0.7)
+y = f.(X)
+
+k_jl = Kriging(y, X, "gauss")
+println(summary(k_jl))
+
+# you can also check logLikelihood using:
+# ll(t) = logLikelihoodFun(k_jl, [t])[1]; plot(0:0.01:1, ll.(0:0.01:1))
+
+x = collect(range(0, 1, length=101))
+p = predict(k_jl, x, return_stdev=true)
+
+plot(x, f.(x), label="f")
+scatter!(X, f.(X), label="data")
+plot!(x, p.mean, color=:blue, label="mean")
+plot!(x, p.mean .- 2 .* p.stdev,
+      fillrange = p.mean .+ 2 .* p.stdev,
+      alpha=0.2, color=:blue, label="±2σ")
+
+s = simulate(k_jl, nsim=10, seed=123, x)
+
+plot(x, f.(x), label="f")
+scatter!(X, f.(X), label="data")
+for i in 1:10
+    plot!(x, s[:, i], color=:blue, alpha=0.2, label="")
+end
 ```
