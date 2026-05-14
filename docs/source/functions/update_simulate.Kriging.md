@@ -86,6 +86,3 @@ lines(x, su[ , 3], col = "blue", lty=2)
 :language: bash
 ```
 ![](examples/update_simulate.Kriging.md.png)
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L471>

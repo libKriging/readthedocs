@@ -63,6 +63,3 @@ print(wk$copy())
 :language: bash
 ```
 
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L712>

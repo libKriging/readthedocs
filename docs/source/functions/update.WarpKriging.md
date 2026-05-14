@@ -80,6 +80,3 @@ lines(x, p_u$mean, col = "red")
 :language: bash
 ```
 ![](examples/update.WarpKriging.md.png)
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L399>

@@ -58,7 +58,3 @@ k$leaveOneOut()
 ```{literalinclude} examples/leaveOneOut.Kriging.md.Rout
 :language: bash
 ```
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L937>
-

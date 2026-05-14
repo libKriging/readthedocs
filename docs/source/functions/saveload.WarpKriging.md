@@ -71,7 +71,3 @@ print(load("wk.json"))
 :language: json
 ```
 
-## Reference
-
-* Save: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L723>
-* Load: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L736>

@@ -41,7 +41,7 @@ Argument      |Description
 ## Details
 
 The returned value is the mean and standard deviation of $\hat{y}_{i,(-i)}$, the
- prediction of $y_i$ based on the the observations $y_j$ 
+ prediction of $y_i$ based on the the observations $y_j$
  with $j \neq i$ .
 
 
@@ -69,7 +69,3 @@ k$leaveOneOutVec(k$theta())
 ```{literalinclude} examples/leaveOneOutVec.Kriging.md.Rout
 :language: bash
 ```
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L901>
-

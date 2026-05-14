@@ -91,6 +91,3 @@ polygon(c(x, rev(x)), c(p$mean - 2 * p$stdev, rev(p$mean + 2 * p$stdev)), border
 :language: bash
 ```
 ![](examples/predict.Kriging.md.png)
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L337>

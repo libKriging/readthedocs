@@ -60,6 +60,3 @@ print(mk$logLikelihood())
 ```{literalinclude} examples/logLikelihood.MLPKriging.md.Rout
 :language: bash
 ```
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L193>

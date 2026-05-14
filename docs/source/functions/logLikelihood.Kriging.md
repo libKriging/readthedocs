@@ -30,7 +30,7 @@ Get the Maximized Log-Likelihood of a `Kriging` Model Object
     ```
 
 ## Details
- 
+
 See [`logLikelihoodFun.Kriging`](logLikelihoodFun.Kriging) for more
 details on the profile log-likelihood function used in the
 maximization.
@@ -60,7 +60,3 @@ k$logLikelihood()
 ```{literalinclude} examples/logLikelihood.Kriging.md.Rout
 :language: bash
 ```
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L786>
-

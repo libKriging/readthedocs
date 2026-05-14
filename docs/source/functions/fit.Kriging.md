@@ -11,7 +11,7 @@ Fit a `Kriging` Object using Given Observations
 * Python
     ```python
     # k = Kriging(kernel=...)
-    k.fit(y, X, 
+    k.fit(y, X,
           regmodel = "constant",
           normalize = False,
           optim = "BFGS",
@@ -22,7 +22,7 @@ Fit a `Kriging` Object using Given Observations
 * R
     ```r
     # k = Kriging(kernel=...)
-    k$fit(y, X, 
+    k$fit(y, X,
           regmodel = "constant",
           normalize = FALSE,
           optim = "BFGS",
@@ -33,7 +33,7 @@ Fit a `Kriging` Object using Given Observations
 * Matlab/Octave
     ```octave
     % k = Kriging(kernel=...)
-    k.fit(y, X, 
+    k.fit(y, X,
           regmodel = "constant",
           normalize = false,
           optim = "BFGS",
@@ -101,6 +101,3 @@ print(k)
 ```{literalinclude} examples/fit.Kriging.md.Rout
 :language: bash
 ```
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L264>

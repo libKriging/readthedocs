@@ -81,7 +81,3 @@ abline(v = wk$theta(), col = "blue")
 :language: bash
 ```
 ![](examples/logLikelihoodFun.WarpKriging.md.png)
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L424>
-

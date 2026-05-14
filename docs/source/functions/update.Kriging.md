@@ -83,6 +83,3 @@ polygon(c(x, rev(x)), c(p2$mean - 2 * p2$stdev, rev(p2$mean + 2 * p2$stdev)), bo
 :language: bash
 ```
 ![](examples/update.Kriging.md.png)
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L550>

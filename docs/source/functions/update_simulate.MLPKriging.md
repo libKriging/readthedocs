@@ -82,6 +82,3 @@ matlines(x, s_u, col = rgb(1, 0, 0, 0.15), type = "l", lty = 1)
 :language: bash
 ```
 ![](examples/update_simulate.MLPKriging.md.png)
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L174>

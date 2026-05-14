@@ -78,6 +78,3 @@ matlines(x, s, col = rgb(0, 0, 1, 0.2), type = "l", lty = 1)
 :language: bash
 ```
 ![](examples/simulate.WarpKriging.md.png)
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L370>

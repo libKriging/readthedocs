@@ -72,7 +72,3 @@ print(load("k.json"))
 ```{literalinclude} examples/k.json
 :language: json
 ```
-## Reference
-
-* Save: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L623>
-* Load: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L658>

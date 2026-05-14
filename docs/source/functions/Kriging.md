@@ -88,7 +88,7 @@ The hyper-parameters (variance and vector of correlation ranges)
 ## Value
 
 An object `"Kriging"` . Should be used
- with its `predict` , `simulate` , `update` 
+ with its `predict` , `simulate` , `update`
  methods.
 
 
@@ -122,6 +122,3 @@ matlines(x, s, col = rgb(0, 0, 1, 0.2), type = "l", lty = 1)
 :language: bash
 ```
 ![](examples/Kriging.md.png)
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L97>

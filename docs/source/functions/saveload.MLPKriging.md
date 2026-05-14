@@ -73,7 +73,3 @@ print(load("mk.json"))
 :language: json
 ```
 
-## Reference
-
-* Save: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L417>
-* Load: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L430>

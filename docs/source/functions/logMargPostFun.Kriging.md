@@ -38,7 +38,7 @@ Argument      |Description
 `return_grad`     |     Logical. Should the function return the gradient (w.r.t `theta`)?
 
 
-## Details 
+## Details
 
 The log-marginal posterior density relates to the [*jointly robust*
 prior](SecJointlyrobust) $\pi_{\texttt{JR}}(\boldsymbol{\theta},\, \sigma^2, \,
@@ -82,7 +82,3 @@ abline(v = k$theta(), col = "blue")
 :language: bash
 ```
 ![](examples/logMargPostFun.Kriging.md.png)
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L981>
-

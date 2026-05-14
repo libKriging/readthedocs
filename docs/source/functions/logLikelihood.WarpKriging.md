@@ -83,6 +83,3 @@ print(wk$logLikelihood())
 ```{literalinclude} examples/logLikelihood.WarpKriging.md.Rout
 :language: bash
 ```
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L411>

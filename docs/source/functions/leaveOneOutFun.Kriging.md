@@ -78,7 +78,3 @@ abline(v = k$theta(), col = "blue")
 :language: bash
 ```
 ![](examples/leaveOneOutFun.Kriging.md.png)
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L831>
-

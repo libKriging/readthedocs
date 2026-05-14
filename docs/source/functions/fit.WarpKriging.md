@@ -108,6 +108,3 @@ print(wk)
 ```{literalinclude} examples/fit.WarpKriging.md.Rout
 :language: bash
 ```
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L327>

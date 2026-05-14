@@ -81,6 +81,3 @@ print(mk)
 ```{literalinclude} examples/fit.MLPKriging.md.Rout
 :language: bash
 ```
-## Reference
-
-* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L119>
