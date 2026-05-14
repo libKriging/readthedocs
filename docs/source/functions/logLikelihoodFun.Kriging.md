@@ -24,6 +24,12 @@ given Vector $\boldsymbol{\theta}$ of Correlation Ranges
     k.logLikelihoodFun(theta)
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    result = logLikelihoodFun(k, theta, return_grad=false, return_hess=false)
+    ```
+
 
 ## Arguments
 

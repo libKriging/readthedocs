@@ -17,6 +17,12 @@ Simulate paths from an `MLPKriging` model.
     mk$simulate(nsim = 1, seed = 123, x, will_update = FALSE)
     ```
 
+* Julia
+    ```julia
+    # mk = MLPKriging(...)
+    s = simulate(mk, nsim=1, seed=123, x)
+    ```
+
 ## Arguments
 
 Argument      |Description

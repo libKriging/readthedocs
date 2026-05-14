@@ -24,6 +24,14 @@ Predict from a `Kriging` Model Object
     k.predict(x, return_stdev = true, return_cov = false, return_deriv = false)
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    p = predict(k, x, return_stdev=true, return_cov=false, return_deriv=false)
+    println(p.mean)
+    println(p.stdev)
+    ```
+
 ## Arguments
 
 Argument      |Description

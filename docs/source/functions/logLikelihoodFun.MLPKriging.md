@@ -17,6 +17,12 @@ Evaluate the log-likelihood of an `MLPKriging` model at a given range parameter 
     mk$logLikelihoodFun(theta, return_grad = FALSE, return_hess = FALSE)
     ```
 
+* Julia
+    ```julia
+    # mk = MLPKriging(...)
+    result = logLikelihoodFun(mk, theta, return_grad=false, return_hess=false)
+    ```
+
 ## Arguments
 
 Argument       |Description

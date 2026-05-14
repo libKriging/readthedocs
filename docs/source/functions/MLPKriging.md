@@ -60,6 +60,26 @@ or, build and fit at the same time:
     )
     ```
 
+* Julia
+    ```julia
+    using jlibkriging
+    # build only
+    mk = MLPKriging(hidden_dims=[32, 16], d_out=2, kernel="gauss")
+    # later, call fit(mk, y, X, ...)
+
+    # or build and fit at the same time
+    mk = MLPKriging(y, X,
+                    hidden_dims=[32, 16],
+                    d_out=2,
+                    activation="selu",
+                    kernel="gauss",
+                    regmodel="constant",
+                    normalize=false,
+                    optim="BFGS+Adam",
+                    objective="LL",
+                    parameters=nothing)
+    ```
+
 ## Arguments
 
 Argument      |Description

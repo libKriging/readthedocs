@@ -45,6 +45,7 @@ for (i in seq_along(shapes))
 abline(0, 1, lty=3, col="grey70")
 legend("topleft", labs, col=cols, lwd=2)
 ```
+![Monotone NN representative shapes](img/neural_mono-shape.png)
 
 ## Regression example
 
@@ -71,3 +72,6 @@ polygon(c(x, rev(x)),
         c(p$mean - 2*p$stdev, rev(p$mean + 2*p$stdev)),
         border=NA, col=rgb(0.27,0.51,0.71,0.2))
 ```
+
+![Monotone NN regression](img/neural_mono.png)
+

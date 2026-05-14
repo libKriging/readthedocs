@@ -42,6 +42,18 @@ Fit a `Kriging` Object using Given Observations
           noise = [])
     ```
 
+* Julia
+    ```julia
+    # k = Kriging("matern5_2")
+    fit(k, y, X,
+        regmodel   = "constant",
+        normalize  = false,
+        optim      = "BFGS",
+        objective  = "LL",
+        parameters = nothing,
+        noise      = nothing)
+    ```
+
 
 ## Arguments
 

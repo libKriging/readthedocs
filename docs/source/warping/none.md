@@ -41,3 +41,6 @@ legend("topright", c("truth", "GP mean", "±2σ"),
        lty = c(2,1,1), col = c("grey","steelblue",rgb(0.27,0.51,0.71,0.4)),
        lwd = c(1,2,8))
 ```
+
+![none warping regression example](img/none.png)
+

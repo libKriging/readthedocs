@@ -27,6 +27,17 @@ Fit an `MLPKriging` model to observations, jointly optimising MLP weights and GP
            parameters = NULL)
     ```
 
+* Julia
+    ```julia
+    # mk = MLPKriging(hidden_dims=[32, 16], d_out=2, kernel="gauss")
+    fit(mk, y, X,
+        regmodel   = "constant",
+        normalize  = false,
+        optim      = "BFGS+Adam",
+        objective  = "LL",
+        parameters = nothing)
+    ```
+
 ## Arguments
 
 Argument      |Description

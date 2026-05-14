@@ -24,6 +24,12 @@ Get the Maximised Log-Likelihood of a `WarpKriging` Model Object.
     wk.logLikelihood()
     ```
 
+* Julia
+    ```julia
+    # wk = WarpKriging(...)
+    ll = logLikelihood(wk)
+    ```
+
 
 ## Details
 

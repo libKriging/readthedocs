@@ -17,6 +17,12 @@ Update an `MLPKriging` model with new observations (permanently added to the dat
     mk$update(y_u, X_u, refit = TRUE)
     ```
 
+* Julia
+    ```julia
+    # mk = MLPKriging(...)
+    update(mk, y_new, X_new)
+    ```
+
 ## Arguments
 
 Argument  |Description

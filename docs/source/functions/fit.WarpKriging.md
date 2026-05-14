@@ -43,6 +43,18 @@ parameters and the GP hyper-parameters are optimised jointly.
            noise      = [])
     ```
 
+* Julia
+    ```julia
+    # wk = WarpKriging(warping=["kumaraswamy", "kumaraswamy"], kernel="matern5_2")
+    fit(wk, y, X,
+        regmodel   = "constant",
+        normalize  = false,
+        optim      = "BFGS+Adam",
+        objective  = "LL",
+        parameters = nothing,
+        noise      = nothing)
+    ```
+
 
 ## Arguments
 

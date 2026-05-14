@@ -23,6 +23,12 @@ Vector $\boldsymbol{\theta}$ of Correlation Ranges
     k.logMargPostFun(theta, return_grad = false)
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    result = logMargPostFun(k, theta, return_grad=false)
+    ```
+
 
 ## Arguments
 

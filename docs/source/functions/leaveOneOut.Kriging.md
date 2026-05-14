@@ -24,6 +24,12 @@ Get the Minimized Leave-One-Out Sum of Squares of a `Kriging` Model
     k.leaveOneOut()
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    loo = leaveOneOut(k)
+    ```
+
 
 ## Value
 

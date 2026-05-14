@@ -23,6 +23,12 @@ Get the Maximized Log-Marginal Posterior Density of a ` Kriging`  Model
     k.logMargPost()
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    lmp = logMargPost(k)
+    ```
+
 ## Details
 
 Using the [*jointly robust*](SecJointlyrobust) prior

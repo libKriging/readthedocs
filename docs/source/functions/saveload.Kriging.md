@@ -27,6 +27,13 @@ Save/Load a `Kriging` Model
     k2 = load("k.json")
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    save(k, "k.json")
+    k2 = load("k.json")
+    ```
+
 
 ## Value
 

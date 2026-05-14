@@ -81,6 +81,25 @@ or, build and fit at the same time:
     )
     ```
 
+* Julia
+    ```julia
+    using jlibkriging
+    # build only
+    wk = WarpKriging(warping=["kumaraswamy", "kumaraswamy"], kernel="matern5_2", noise=nothing)
+    # later, call fit(wk, y, X, ..., noise=nothing)
+
+    # or build and fit at the same time
+    wk = WarpKriging(y, X,
+                     warping=["kumaraswamy", "kumaraswamy"],
+                     kernel="matern5_2",
+                     regmodel="constant",
+                     normalize=false,
+                     optim="BFGS+Adam",
+                     objective="LL",
+                     parameters=nothing,
+                     noise=nothing)
+    ```
+
 
 ## Arguments
 

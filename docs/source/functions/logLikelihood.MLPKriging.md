@@ -17,6 +17,12 @@ Return the log-likelihood evaluated at the fitted hyper-parameters.
     mk$logLikelihood()
     ```
 
+* Julia
+    ```julia
+    # mk = MLPKriging(...)
+    ll = logLikelihood(mk)
+    ```
+
 ## Value
 
 A numeric scalar — the log-likelihood at the fitted parameters.

@@ -62,6 +62,7 @@ for (lev in 0:(n_levels-1)) {
 legend("topright", paste("level", 0:(n_levels-1)),
        col = cols, lwd = 2, cex = 0.7)
 ```
+![Ordinal warping per-level prediction](img/ordinal.png)
 
 ## Comparison with `categorical`
 

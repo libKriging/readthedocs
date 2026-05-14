@@ -34,6 +34,7 @@ plot(x, a*x + b, type = "l", col = "darkorange", lwd = 2,
      xlab = "x", ylab = "w(x)", main = "Affine warping  w(x) = ax + b")
 abline(h = 0, lty = 3); abline(v = 0, lty = 3)
 ```
+![Affine warping shape](img/affine-shape.png)
 
 ## Regression example
 
@@ -57,3 +58,6 @@ polygon(c(x, rev(x)),
         c(p$mean - 2*p$stdev, rev(p$mean + 2*p$stdev)),
         border = NA, col = rgb(1, 0.55, 0, 0.2))
 ```
+
+![Affine warping regression](img/affine.png)
+

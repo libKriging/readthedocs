@@ -29,6 +29,13 @@ fit, plus the new input points and their values given as argument (knonw as 'upd
     k.update_simulate(y_u, X_u, noise_u = [])
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    # simulate(k, nsim=1, seed=123, x, will_update=true)
+    update_simulate(k, y_u, X_u, noise_u=nothing)
+    ```
+
 ## Arguments
 
 Argument      |Description

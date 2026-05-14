@@ -25,6 +25,12 @@ Compute the Leave-One-Out (LOO) Sum of Squares of Errors
     k.leaveOneOutFun(theta, return_grad = false)
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    result = leaveOneOutFun(k, theta, return_grad=false)
+    ```
+
 
 ## Arguments
 

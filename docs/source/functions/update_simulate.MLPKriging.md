@@ -20,6 +20,13 @@ Must have called `simulate(..., will_update = TRUE)` first.
     mk$update_simulate(y_u, X_u)
     ```
 
+* Julia
+    ```julia
+    # mk = MLPKriging(...)
+    # simulate(mk, nsim=1, seed=123, x, will_update=true)
+    update_simulate(mk, y_u, X_u)
+    ```
+
 ## Arguments
 
 Argument  |Description

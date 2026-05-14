@@ -24,6 +24,12 @@ Simulate from a `WarpKriging` Model Object.
     wk.simulate(nsim = 1, seed = 123, x)
     ```
 
+* Julia
+    ```julia
+    # wk = WarpKriging(...)
+    s = simulate(wk, nsim=1, seed=123, x)
+    ```
+
 
 ## Arguments
 

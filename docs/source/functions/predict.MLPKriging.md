@@ -17,6 +17,14 @@ Predict the mean (and optionally standard deviation / covariance) from an `MLPKr
     mk$predict(x, return_stdev = TRUE, return_cov = FALSE, return_deriv = FALSE)
     ```
 
+* Julia
+    ```julia
+    # mk = MLPKriging(...)
+    p = predict(mk, x, return_stdev=true, return_cov=false, return_deriv=false)
+    println(p.mean)
+    println(p.stdev)
+    ```
+
 ## Arguments
 
 Argument        |Description

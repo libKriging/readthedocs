@@ -23,6 +23,12 @@ Get the Maximized Log-Likelihood of a `Kriging` Model Object
     % k = Kriging(...)
     k.logLikelihood()
     ```
+* Julia
+    ```julia
+    # k = Kriging(...)
+    ll = logLikelihood(k)
+    ```
+
 ## Details
  
 See [`logLikelihoodFun.Kriging`](logLikelihoodFun.Kriging) for more

@@ -26,6 +26,12 @@ model at an arbitrary value of the GP range parameters $\theta$
     wk.logLikelihoodFun(theta, return_grad = true, return_hess = false)
     ```
 
+* Julia
+    ```julia
+    # wk = WarpKriging(...)
+    result = logLikelihoodFun(wk, theta, return_grad=false, return_hess=false)
+    ```
+
 
 ## Arguments
 

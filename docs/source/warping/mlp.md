@@ -73,3 +73,6 @@ contour(seq(0,1,l=40), seq(0,1,l=40), z, add=TRUE)
 points(X[,1], X[,2], pch=19, cex=0.5)
 par(mfrow = c(1, 1))
 ```
+
+![MLP warping on Branin function](img/mlp.png)
+

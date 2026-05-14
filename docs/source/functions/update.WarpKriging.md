@@ -24,6 +24,12 @@ Update a `WarpKriging` model with new observations.
     wk.update(y_new, X_new)
     ```
 
+* Julia
+    ```julia
+    # wk = WarpKriging(...)
+    update(wk, y_new, X_new)
+    ```
+
 
 ## Arguments
 

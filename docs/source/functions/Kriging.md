@@ -31,6 +31,17 @@ Kriging(
 )
 ```
 
+* Julia
+    ```julia
+    using jlibkriging
+    y = [f(xi) for xi in X[:, 1]]
+    # build and fit
+    k = Kriging(y, X, "matern3_2")
+    # or build then fit separately
+    k = Kriging("matern3_2")
+    fit(k, y, X)
+    ```
+
 
 ## Arguments
 

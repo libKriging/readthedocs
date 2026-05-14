@@ -24,6 +24,12 @@ Compute Leave-One-Out (LOO) errors vector for an object
     k.leaveOneOutVec(theta)
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    result = leaveOneOutVec(k, theta)
+    ```
+
 
 ## Arguments
 

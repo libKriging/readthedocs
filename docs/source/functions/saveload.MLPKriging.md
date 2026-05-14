@@ -19,6 +19,13 @@ Save/Load an `MLPKriging` model to/from a JSON file.
     mk2 <- load("mk.json")
     ```
 
+* Julia
+    ```julia
+    # mk = MLPKriging(...)
+    save(mk, "mk.json")
+    mk2 = load("mk.json")
+    ```
+
 ## Arguments
 
 Argument    |Description

@@ -24,6 +24,12 @@ Update a `Kriging` model object with new points (added permanently).
     k.update(y_u, X_u, noise_u = [])
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    update(k, y_u, X_u, noise_u=nothing)
+    ```
+
 
 ## Arguments
 

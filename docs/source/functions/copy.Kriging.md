@@ -24,6 +24,12 @@ Duplicate a `Kriging` Model
     k2 = k.copy()
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    k2 = copy(k)
+    ```
+
 
 ## Value
 

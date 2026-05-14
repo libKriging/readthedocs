@@ -24,6 +24,12 @@ Simulate from a `Kriging` Model Object.
     k.simulate(nsim = 1, seed = 123, x, with_noise = true)
     ```
 
+* Julia
+    ```julia
+    # k = Kriging(...)
+    s = simulate(k, nsim=1, seed=123, x)
+    ```
+
 
 ## Arguments
 

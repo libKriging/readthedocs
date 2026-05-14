@@ -41,6 +41,7 @@ for (i in seq_along(lambdas))
 legend("topleft", paste0("λ = ", lambdas), col = cols, lwd = 2)
 abline(h = 0, lty = 3)
 ```
+![Box-Cox warping shapes](img/boxcox-shape.png)
 
 ## Regression example
 
@@ -65,3 +66,6 @@ polygon(c(x, rev(x)),
         c(p$mean - 2*p$stdev, rev(p$mean + 2*p$stdev)),
         border = NA, col = rgb(1, 0, 0, 0.15))
 ```
+
+![Box-Cox warping regression](img/boxcox.png)
+

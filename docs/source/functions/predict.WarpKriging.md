@@ -25,6 +25,14 @@ in the warped feature space $\Phi(\mathbf{x})$.
     wk.predict(x, return_stdev = true, return_cov = false, return_deriv = false)
     ```
 
+* Julia
+    ```julia
+    # wk = WarpKriging(...)
+    p = predict(wk, x, return_stdev=true, return_cov=false, return_deriv=false)
+    println(p.mean)
+    println(p.stdev)
+    ```
+
 
 ## Arguments
 
