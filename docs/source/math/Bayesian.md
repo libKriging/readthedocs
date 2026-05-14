@@ -65,7 +65,7 @@ and $\bs{\beta}$ is then known in closed form.
 
 ## Fit: Bayesian marginal analysis
 
-In the `Kriging` case, the *marginal likelihood*
+In the `Kriging(noise = NULL)` case, the *marginal likelihood*
 a.k.a. *integrated likelihood* for $\bs{\theta}$ is obtained by
 marginalizing the GP variance $\sigma^2$ and the trend parameter
 vector $\bs{\beta}$ out of the likelihood according to
@@ -90,7 +90,7 @@ $$
 	\propto \pi(\bs{\theta}) \times  L_{\texttt{marg}}(\bs{\theta};\,\m{y}).
 $$
 
-In the `NuggetKriging` case, the same approach can be used, but the
+In the `Kriging(noise = "nugget")` case, the same approach can be used, but the
 parameter used for the nugget is not marginalized out so it remains an
 argument of the marginal likelihood. In **libKriging** the nugget
 parameter is taken as $\alpha := \sigma^2 / (\sigma^2 + \tau^2)$ where
@@ -127,9 +127,9 @@ the [Bending Energy matrix](SecBending) $\m{B}$.
 
 |   |   |
 |:--|:--|
-| `"Kriging"` | $-2 \ell_{\texttt{marg}}(\bs{\theta}) = \log \lvert\m{R}\rvert + \log\lvert \m{F}^\top \m{R}^{-1}\m{F}\rvert + (n - p + 2a - 2) \log S^2$  |
-| `"NuggetKriging"` | $-2 \ell_{\texttt{marg}}(\bs{\theta}, \, \alpha) = \log \lvert\m{R}_\alpha\rvert + \log\lvert \m{F}^\top \m{R}_\alpha^{-1}\m{F}\rvert + (n - p + 2a -2) \log S^2$ |
-| `"NoiseKriging"` | *not used*  |
+| `Kriging(noise = NULL)` | $-2 \ell_{\texttt{marg}}(\bs{\theta}) = \log \lvert\m{R}\rvert + \log\lvert \m{F}^\top \m{R}^{-1}\m{F}\rvert + (n - p + 2a - 2) \log S^2$  |
+| `Kriging(noise = "nugget")` | $-2 \ell_{\texttt{marg}}(\bs{\theta}, \, \alpha) = \log \lvert\m{R}_\alpha\rvert + \log\lvert \m{F}^\top \m{R}_\alpha^{-1}\m{F}\rvert + (n - p + 2a -2) \log S^2$ |
+| `Kriging(noise = <variance vector>)` | *not used*  |
 
 
 It can be interesting to compare this table with the [table of profile

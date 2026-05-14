@@ -9,18 +9,22 @@ Simulate paths from an `MLPKriging` model.
 * Python
     ```python
     # mk = MLPKriging(...)
-    mk.simulate(nsim = 1, seed = 123, x, will_update = False)
+    mk.simulate(nsim = 1, seed = 123, x = x, will_update = False)
     ```
 * R
     ```r
     # mk <- MLPKriging(...)
-    mk$simulate(nsim = 1, seed = 123, x, will_update = FALSE)
+    mk$simulate(nsim = 1, seed = 123, x = x, will_update = FALSE)
     ```
-
+* Matlab/Octave
+    ```octave
+    % mk = MLPKriging(...)
+    mk.simulate(nsim = 1, seed = 123, x = x, will_update = false)
+    ```
 * Julia
     ```julia
     # mk = MLPKriging(...)
-    s = simulate(mk, nsim=1, seed=123, x)
+    s = simulate(mk, nsim=1, seed=123, x=x, will_update=false)
     ```
 
 ## Arguments
@@ -31,6 +35,10 @@ Argument      |Description
 `seed`        | Random seed. Default `123`.
 `x`           | Numeric matrix of simulation points ($m \times d$).
 `will_update` | Logical. Set to `TRUE` if `update_simulate` will be called afterwards. Default `FALSE`.
+
+## Details
+
+The MLP feature extractor is applied first, then the GP conditional simulation is performed in the learned latent feature space.
 
 ## Value
 
@@ -64,3 +72,6 @@ matlines(x, s, col = rgb(0, 0, 1, 0.2), type = "l", lty = 1)
 :language: bash
 ```
 ![](examples/simulate.MLPKriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L159>

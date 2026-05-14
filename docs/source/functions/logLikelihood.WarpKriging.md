@@ -31,6 +31,12 @@ Get the Maximised Log-Likelihood of a `WarpKriging` Model Object.
     ```
 
 
+## Arguments
+
+Argument |Description
+-------- |-----------
+None     | `logLikelihood()` reads the value attached to the fitted model.
+
 ## Details
 
 Returns the **concentrated profile log-likelihood** at the fitted
@@ -51,6 +57,10 @@ $$
 = -\tfrac{n}{2}\bigl[1 + \log(2\pi) + \log\hat\sigma^2\bigr]
   - \tfrac12 \log |R|.
 $$
+
+## Value
+
+A numeric scalar: the maximised log-likelihood of the fitted `WarpKriging` model.
 
 ## Examples
 
@@ -73,3 +83,6 @@ print(wk$logLikelihood())
 ```{literalinclude} examples/logLikelihood.WarpKriging.md.Rout
 :language: bash
 ```
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L411>

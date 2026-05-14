@@ -23,6 +23,16 @@ Return the log-likelihood evaluated at the fitted hyper-parameters.
     ll = logLikelihood(mk)
     ```
 
+## Arguments
+
+Argument |Description
+-------- |-----------
+None     | `logLikelihood()` reads the current fitted objective value.
+
+## Details
+
+The reported value corresponds to the fitted deep-kernel model after jointly optimising the MLP parameters and GP hyper-parameters.
+
 ## Value
 
 A numeric scalar — the log-likelihood at the fitted parameters.
@@ -50,3 +60,6 @@ print(mk$logLikelihood())
 ```{literalinclude} examples/logLikelihood.MLPKriging.md.Rout
 :language: bash
 ```
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L193>

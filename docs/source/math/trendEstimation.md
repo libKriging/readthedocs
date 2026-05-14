@@ -107,12 +107,12 @@ the square of the element $R_{\m{F}^\dagger_+}[p + 1, p +1]$. See
 {cite:t}`Lange_Numerical`.
 
 
-### `"NuggetKriging"` and `"NoiseKriging"`
+### `Kriging(noise = "nugget")` and `Kriging(noise = <variance vector>)`
 
 When a nugget or noise term is used, the estimate of $\bs{\beta}$ can
 be obtained as above provided that the covariance matrix is that of
 the non-trend component hence includes the nugget or noise variance in
-its diagonal. In the `NuggetKriging` case the GLS will provide an
+its diagonal. In the `Kriging(noise = "nugget")` case the GLS will provide an
 estimate of the variance $\nu^2 = \sigma^2 + \tau^2$ but the ML
 estimate of $\sigma^2$ can only be obtained by using a numerical
 optimization providing the ML estimate of $\alpha$ from which the

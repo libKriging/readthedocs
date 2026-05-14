@@ -83,7 +83,6 @@ print(k)
 ```{literalinclude} ../functions/examples/fit.NuggetKriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/fit.NuggetKriging.md.png)
 
 
 

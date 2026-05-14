@@ -16,11 +16,15 @@ Update an `MLPKriging` model with new observations (permanently added to the dat
     # mk <- MLPKriging(...)
     mk$update(y_u, X_u, refit = TRUE)
     ```
-
+* Matlab/Octave
+    ```octave
+    % mk = MLPKriging(...)
+    mk.update(y_u, X_u, refit = true)
+    ```
 * Julia
     ```julia
     # mk = MLPKriging(...)
-    update(mk, y_new, X_new)
+    update(mk, y_u, X_u, refit=true)
     ```
 
 ## Arguments
@@ -30,6 +34,10 @@ Argument  |Description
 `y_u`     | Numeric vector of new response values.
 `X_u`     | Numeric matrix of new input points.
 `refit`   | Logical. If `TRUE` (default) the model is re-optimised after adding the new points.
+
+## Details
+
+The new observations are appended to the dataset used by the latent MLP feature extractor and GP head. Set `refit = TRUE` to re-optimise the feature extractor and GP hyper-parameters jointly.
 
 ## Value
 
@@ -71,3 +79,6 @@ lines(x, p_u$mean, col = "red")
 :language: bash
 ```
 ![](examples/update.MLPKriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L186>

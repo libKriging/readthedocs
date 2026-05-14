@@ -48,6 +48,5 @@ k$copy()
 ```{literalinclude} ../functions/examples/copy.NuggetKriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/copy.NuggetKriging.md.png)
 
 

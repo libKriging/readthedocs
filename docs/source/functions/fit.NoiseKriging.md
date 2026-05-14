@@ -85,7 +85,6 @@ print(k)
 ```{literalinclude} ../functions/examples/fit.NoiseKriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/fit.NoiseKriging.md.png)
 
 
 

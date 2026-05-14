@@ -13,27 +13,27 @@ fit, plus the new input points and their values given as argument (knonw as 'upd
 * Python
     ```python
     # k = Kriging(...)
-    # k.simulate(nsim = 1, seed = 123, x, will_update = True)
-    k.update_simulate(y_u, X_u, noise_u = None)
+    # k.simulate(nsim = 1, seed = 123, x = x, will_update = True)
+    k.update_simulate(y_u, X_u)
     ```
 * R
     ```r
     # k = Kriging(...)
-    # k$simulate(nsim = 1, seed = 123, x, will_update = TRUE)
-    k$update_simulate(y_u, X_u, noise_u = NULL)
+    # k$simulate(nsim = 1, seed = 123, x = x, will_update = TRUE)
+    k$update_simulate(y_u, X_u)
     ```
 * Matlab/Octave
     ```octave
     % k = Kriging(...)
-    % k.simulate(nsim = 1, seed = 123, x, will_update = true)
-    k.update_simulate(y_u, X_u, noise_u = [])
+    % k.simulate(nsim = 1, seed = 123, x = x, will_update = true)
+    k.update_simulate(y_u, X_u)
     ```
 
 * Julia
     ```julia
     # k = Kriging(...)
-    # simulate(k, nsim=1, seed=123, x, will_update=true)
-    update_simulate(k, y_u, X_u, noise_u=nothing)
+    # simulate(k, nsim=1, seed=123, x=x, will_update=true)
+    update_simulate(k, y_u, X_u)
     ```
 
 ## Arguments
@@ -42,21 +42,14 @@ Argument      |Description
 ------------- |----------------
 `y_u`     |     Numeric vector of new responses (output).
 `X_u`     |     Numeric matrix of new input points.
-`noise_u`     |     Optional numeric vector of noise variances for the new observations. Only used if the model was fitted with `noise`.
-
 
 ## Details
 
-This method draws $n_{\texttt{sim}}$ paths of the stochastic process
-$y(\mathbf{x})$ at the $n^\star$ given new input points
-$\mathbf{x}^\star_j$ conditional on the values $y(\mathbf{x}_i)$ at
-the input points used in the fit, plus the new input points and their values given as argument (knonw as 'update' points).
+This method updates previously simulated paths with the new observations, without re-drawing the full conditional sample from scratch. It requires a previous call to `simulate(..., will_update = TRUE)`.
 
 ## Value
 
-A matrix with `nrow(x)` rows and `nsim` columns containing the updated
-simulated paths at the inputs points given in `x`.
-
+A matrix with `nrow(x)` rows and `nsim` columns containing the updated simulated paths at the input points given in `x`.
 
 ## Examples
 
@@ -93,3 +86,6 @@ lines(x, su[ , 3], col = "blue", lty=2)
 :language: bash
 ```
 ![](examples/update_simulate.Kriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L471>

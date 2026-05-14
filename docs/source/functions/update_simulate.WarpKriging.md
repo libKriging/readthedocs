@@ -43,10 +43,7 @@ Argument  |Description
 
 ## Details
 
-This method draws $n_{\texttt{sim}}$ paths of the stochastic process
-$y(\mathbf{x})$ at the $n^\star$ given new input points
-$\mathbf{x}^\star_j$ conditional on the values $y(\mathbf{x}_i)$ at
-the input points used in the fit, plus the new input points and their values given as argument (known as 'update' points).
+This method updates previously simulated paths after conditioning on the additional observations. The model must first have been simulated with `will_update = TRUE`.
 
 ## Value
 
@@ -86,3 +83,6 @@ matlines(x, s_u, col = rgb(1, 0, 0, 0.15), type = "l", lty = 1)
 :language: bash
 ```
 ![](examples/update_simulate.WarpKriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L386>

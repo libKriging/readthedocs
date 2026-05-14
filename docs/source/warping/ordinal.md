@@ -71,4 +71,3 @@ legend("topright", paste("level", 0:(n_levels-1)),
 | Ordering constraint | ✔ enforced | ✘ ignored |
 | Free parameters | $L-1$ | $L \times q$ |
 | Suitable when | levels have a natural order | levels are unordered |
-```

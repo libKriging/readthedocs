@@ -66,3 +66,7 @@ k$logMargPost()
 ```{literalinclude} examples/logMargPost.Kriging.md.Rout
 :language: bash
 ```
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L1025>
+

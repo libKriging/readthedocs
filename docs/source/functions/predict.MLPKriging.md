@@ -72,3 +72,7 @@ polygon(c(x, rev(x)), c(p$mean - 2 * p$stdev, rev(p$mean + 2 * p$stdev)),
 :language: bash
 ```
 ![](examples/predict.MLPKriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L143>
+

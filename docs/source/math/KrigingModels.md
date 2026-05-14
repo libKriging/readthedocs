@@ -54,19 +54,19 @@ least continuous.
   common unknown variance $\tau^2$ or a variance $\tau^2(\m{x})$
   depending on the design according to some specification.
 
-**libKriging** implements the three classes `"Kriging"`,
-`"NoiseKriging"` and `"NuggetKriging"` of objects
-corresponding to Kriging models. In each class we find the linear
-trend, the smooth GP. The difference relates to the presence of a
-nugget or noise term.
+**libKriging** now exposes a unified `Kriging` constructor with three
+observation-noise strategies selected through the `noise` argument:
+`noise = NULL`, `noise = "nugget"`, and `noise = <variance vector>`.
+All three variants share the same linear-trend and smooth-GP structure;
+they differ only by the observation noise model.
 
 
-## Classes of Kriging model objects
+## Noise strategies of `Kriging` model objects
 
 To describe the three classes of Kriging models, we assume that $n$
 observations are given corresponding to $n$ input vectors $\m{x}_i$.
 
-- **The `Kriging` class** correspond to observations of the form
+- **`Kriging(noise = NULL)`** corresponds to observations of the form
 
 $$
   \m{y}(\m{x}_i) = 
@@ -77,7 +77,7 @@ $$
   i= 1,\, \dots,\, n.
 $$
 
-- **The `"NuggetKriging"` class** corresponds to observations of the form
+- **`Kriging(noise = "nugget")`** corresponds to observations of the form
 
 $$
   \m{y}(\m{x}_i) = 
@@ -95,7 +95,7 @@ The sum $\eta(\m{x}) := \zeta(\m{x}) +
 covariance kernel $C(\m{x}, \m{x}') +
 \tau^2\delta(\m{x},\,\m{x}')$.
 
-- **The `"NoiseKriging"` class** corresponds to observations of the form
+- **`Kriging(noise = <variance vector>)`** corresponds to observations of the form
 
 $$
   y_i = 
@@ -110,8 +110,7 @@ $$
 
 where the noise r.vs $\varepsilon_i$ are Gaussian with mean zero and
 known variances $\tau_i^2$.  Although the response $y_i$ corresponds
-to the input $\m{x}_i$ as for the classes `"Kriging"` and
-`"NugggetKriging"`, there can be several observations made at the
+to the input $\m{x}_i$ as for the noise-free and nugget variants of `Kriging`, there can be several observations made at the
 same input $\m{x}_i$. We may then speak of *duplicated* inputs.
 
 ## Matrix formalism and assumptions
@@ -129,11 +128,10 @@ The $n$ input vectors $\m{x}_i$ are conveniently considered as the
   $\m{C}(\m{X},\, \m{X}) =[C(\m{x}_i,\,\m{x}_j)]_{i,j}$ is sometimes
   called the Gram matrix and is often simply denoted as $\m{C}$.
 
-The observations for a `Kriging` model write in matrix notations
+For `Kriging(noise = NULL)`, the observations write in matrix notation
 $\m{y} = \m{F} \bs{\beta} + \bs{\zeta}$,
-while those for `NuggetKriging` and `NoiseKriging` models write as
-$\m{y} = \m{F} \bs{\beta} + \bs{\zeta} +
-\bs{\varepsilon}$.  Similar notations are used if a sequence
+while the nugget and heteroskedastic variants write as
+$\m{y} = \m{F} \bs{\beta} + \bs{\zeta} + \bs{\varepsilon}$.  Similar notations are used if a sequence
 of $n^\star$ "new" designs $\m{x}_i^\star$ are considered,
 resulting in matrices with $n^\star$ rows $\m{X}^\star$ and
 $\m{F}^\star$.

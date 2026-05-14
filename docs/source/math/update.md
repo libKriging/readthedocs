@@ -284,10 +284,9 @@ Kriging weights.
 
 ## The noisy case
 
-Remind that the `simulate` method for the class `"NoiseKriging"` draws
-either *non-noisy* or *noisy* paths from the Kriging model. Referring
+Recall that `simulate` for `Kriging(noise = <variance vector>)` can draw either latent smooth-process paths or noisy observation paths, depending on the selected noise mode. Referring
 to the notations used at the end of the [Prediction and
-simulation](predictSimulate) section, the simulated non-noisy paths
+simulation](SecPredAndSim) section, the simulated non-noisy paths
 embed a *smooth process* part $\eta(\m{x})$ which is the sum of the
 linear trend and the GP components
 

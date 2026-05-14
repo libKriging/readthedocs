@@ -31,9 +31,19 @@ Duplicate a `Kriging` Model
     ```
 
 
+## Arguments
+
+Argument |Description
+-------- |-----------
+None     | `copy()` duplicates the current model object without additional arguments.
+
+## Details
+
+The returned model is independent from the original one: later calls to `fit`, `update`, or `simulate` on either object do not modify the other instance.
+
 ## Value
 
-The copy of object.
+A deep copy of the model object.
 
 
 ## Examples
@@ -53,3 +63,6 @@ k$copy()
 ```{literalinclude} examples/copy.Kriging.md.Rout
 :language: bash
 ```
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L1054>

@@ -59,7 +59,6 @@ k$logLikelihood()
 ```{literalinclude} ../functions/examples/logLikelihood.NuggetKriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/logLikelihood.NuggetKriging.md.png)
 
 
 ## Reference

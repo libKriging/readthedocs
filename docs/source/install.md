@@ -1,31 +1,38 @@
-Installation
-============
+(install)=
+# Installation
 
-libKriging may be installed directly from:
+libKriging v1.0.0 is available through the language-specific bindings below.
 
-* Python, from PyPI: 
+* **Python** (PyPI)
   ```bash
-  pip3 install pylibkriging
+  pip install pylibkriging
   ```
-* R 
-  * from CRAN:
-      ```r
-      install.packages('rlibkriging')
-      ```
-  * from GitHub (dev version):
-      ```r
-      devtools::install_github('libKriging/rlibkriging')
-      ```
-* Octave/Matlab, **download and uncompress** the archive for your system from libKriging latest release <https://github.com/libKriging/libKriging/releases/latest>, then:
+* **R** (CRAN)
+  ```r
+  install.packages("rlibkriging")
+  ```
+* **R** (development version from GitHub)
+  ```r
+  remotes::install_github("libKriging/rlibkriging")
+  ```
+* **Octave / Matlab**
+  Download and unpack the archive for your platform from the
+  [latest libKriging release](https://github.com/libKriging/libKriging/releases/latest),
+  then add the binding directory to your path:
   ```octave
   addpath("mLibKriging")
   ```
-* Julia, build from source with Julia binding enabled:
+* **Julia**
+  The Julia binding is currently installed from a local libKriging source checkout.
+  Build libKriging with the Julia binding enabled, then develop the package from the
+  binding directory:
   ```bash
   git clone --recurse-submodules https://github.com/libKriging/libKriging.git
   cd libKriging
   cmake -B build -DCMAKE_BUILD_TYPE=Release -DENABLE_JULIA_BINDING=ON .
-  cmake --build build
+  cmake --build build --config Release
   julia -e 'using Pkg; Pkg.develop(path="bindings/Julia/jlibkriging")'
   ```
 
+For source builds, consult the main libKriging repository for compiler, BLAS, and
+platform-specific requirements.

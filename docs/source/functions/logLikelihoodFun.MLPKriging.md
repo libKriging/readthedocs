@@ -63,3 +63,7 @@ abline(v = mk$theta(), col = "blue")
 :language: bash
 ```
 ![](examples/logLikelihoodFun.MLPKriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L205>
+

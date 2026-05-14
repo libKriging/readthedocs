@@ -4,8 +4,7 @@
 ## Framework
 
 Consider first the cases where the observations $y_i$ are from a
-stochastic process $y(\m{x})$ namely the ` Kriging` and the
-`NuggetKriging` cases. Consider $n^\star$ "new" inputs
+stochastic process $y(\m{x})$ namely `Kriging(noise = NULL)` and `Kriging(noise = "nugget")`. Consider $n^\star$ "new" inputs
 $\m{x}_j^\star$ given as the rows of a $n^\star \times d$ matrix
 $\m{X}^\star$ and the random vector of "new" responses
 $\m{y}^\star := [y(\m{x}_1^\star), \, \dots, \,
@@ -28,7 +27,7 @@ can provide estimates $\widehat{\mu}(\m{x})$,
 $\widehat{\zeta}(\m{x})$ and $\widehat{\varepsilon}(\m{x})$
 for the unobserved components: *trend*, *smooth GP* and *nugget*.
 
-In the noisy case `"NoiseKriging`", the observations $y_i$ are noisy
+In the heteroskedastic case `Kriging(noise = <variance vector>)`, the observations $y_i$ are noisy
 versions of the "trend $+$ GP" process $\eta(\m{x}) :=
 \mu(\m{x}) + \zeta(\m{x})$. Under the assumption that the
 $\varepsilon_i$ are Gaussian, the distribution of the random vector
@@ -76,7 +75,7 @@ used.
 
 ## The Kriging prediction
 
-### Non-noisy cases ` Kriging` and `NuggetKriging` 
+### Noise-free and nugget cases: `Kriging(noise = NULL)` and `Kriging(noise = "nugget")`
 
 If the covariance kernel is known, the Kriging mean is given by
 
@@ -151,7 +150,7 @@ $$
   to the estimated trend $\m{f}(\m{x}^\star)^\top
   \widehat{\bs{\beta}}$.
 
-### Noisy case ` NoiseKriging` 
+### Heteroskedastic case: `Kriging(noise = <variance vector>)`
 
 In the noisy case we compute the expectation and covariance of
 $\bs{\eta}^\star$ conditional on the observations in
@@ -200,7 +199,7 @@ maximum-likelihood estimate* $\widehat{\sigma}_{\texttt{REML}}^2 =
 the quantiles of the Student distribution with $n-p$ degree of freedom
 can be used in place of those of the normal distribution to account
 for the uncertainty on $\sigma^2$. The same ideas can be used for the
-` "NuggetKriging"` and ` "NoiseKriging"` cases.
+`Kriging(noise = "nugget")` and `Kriging(noise = <variance vector>)` cases.
 
 ## Derivative w.r.t. the input
 
@@ -220,8 +219,7 @@ above. The simulation is straightforward once the expectation and
 covariance have been computed.
 
 There are however some differences between the three models described
-in the [Kriging models](SecKrigingModels) section, namely `Kriging`,
-`NuggetKriging` and `NoiseKriging`.  All involve a *smooth process*
+in the [Kriging models](SecKrigingModels) section, namely `Kriging(noise = NULL)`, `Kriging(noise = "nugget")`, and `Kriging(noise = <variance vector>)`.  All involve a *smooth process*
 component
 
 $$
@@ -235,14 +233,7 @@ the process $\eta(\m{x})$ being unobserved in both the nugget and
 noise cases. The conditional simulation consists in generating random
 draws $\bs{\eta}^{\star[j]}$ $j=1$, $\dots$, $m$ from the distribution
 of $\bs{\eta}^\star:= \eta(\m{X}^\star)$ conditional on the
-observations $\m{y}$. In the `NuggetKriging` and `NoiseKriging` cases,
-it is possible to add a Gaussian noise in order to get random draws
-$\m{y}^{\star[j]}$ for "new" observations, rather than
-$\bs{\eta}^{\star[j]}$ for "new" values of the smooth process. This
-choice is made via the arguments `with_nugget` and `with_noise` of
-the `simulate` method for the corresponding class. In the `Kriging`
-case where no nugget or noise is used there is no distinction between
-$\bs{\eta}^\star$ and $\m{y}^\star$.
+observations $\m{y}$. In the nugget and heteroskedastic variants of `Kriging`, one can distinguish between simulations of the latent smooth process $\bs{\eta}^{\star[j]}$ and simulations of noisy future observations $\m{y}^{\star[j]}$. In the noise-free case `Kriging(noise = NULL)`, there is no distinction between $\bs{\eta}^\star$ and $\m{y}^\star$.
 
 
 **Note**. The trend component $\m{F}(\m{X}^\star) \bs{\beta}$ at some

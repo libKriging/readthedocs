@@ -1,0 +1,13 @@
+* WarpKriging
+* data: 10x[0.05,0.95] -> 10x[0.163421,0.976851]
+* trend constant (est.): 126.685
+* variance (est.): 2.63805e+08
+* covariance:
+  * kernel: gauss
+  * range (est.): 9
+  * warpings:
+      x0: "kumaraswamy"  →  Kumaraswamy(a=1.01912, b=0.981236)
+  * total warp params: 2
+  * fit:
+    * objective: LL
+    * optim: BFGS+Adam

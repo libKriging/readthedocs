@@ -65,7 +65,6 @@ k$logMargPost()
 ```{literalinclude} ../functions/examples/logMargPost.NuggetKriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/logMargPost.NuggetKriging.md.png)
 
 
 ## Reference

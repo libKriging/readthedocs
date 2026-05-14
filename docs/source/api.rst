@@ -25,6 +25,8 @@ Constructors
    functions/saveload.Kriging.md
    functions/WarpKriging.md
    functions/update.WarpKriging.md
+   functions/copy.WarpKriging.md
+   functions/saveload.WarpKriging.md
    functions/MLPKriging.md
    functions/update.MLPKriging.md
    functions/copy.MLPKriging.md

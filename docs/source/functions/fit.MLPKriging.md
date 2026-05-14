@@ -9,33 +9,26 @@ Fit an `MLPKriging` model to observations, jointly optimising MLP weights and GP
 * Python
     ```python
     # mk = MLPKriging(hidden_dims=[...], kernel=...)
-    mk.fit(y, X,
-           regmodel   = "constant",
-           normalize  = False,
-           optim      = "BFGS+Adam",
-           objective  = "LL",
-           parameters = None)
+    mk.fit(y, X, regmodel = "constant", normalize = False,
+           optim = "BFGS+Adam", objective = "LL", parameters = None)
     ```
 * R
     ```r
     # mk <- MLPKriging(hidden_dims = c(...), kernel = ...)
-    mk$fit(y, X,
-           regmodel   = "constant",
-           normalize  = FALSE,
-           optim      = "BFGS+Adam",
-           objective  = "LL",
-           parameters = NULL)
+    mk$fit(y, X, regmodel = "constant", normalize = FALSE,
+           optim = "BFGS+Adam", objective = "LL", parameters = NULL)
     ```
-
+* Matlab/Octave
+    ```octave
+    % mk = MLPKriging(hidden_dims = [...], kernel = ...)
+    mk.fit(y, X, regmodel = "constant", normalize = false, ...
+           optim = "BFGS+Adam", objective = "LL", parameters = [])
+    ```
 * Julia
     ```julia
     # mk = MLPKriging(hidden_dims=[32, 16], d_out=2, kernel="gauss")
-    fit(mk, y, X,
-        regmodel   = "constant",
-        normalize  = false,
-        optim      = "BFGS+Adam",
-        objective  = "LL",
-        parameters = nothing)
+    fit(mk, y, X, regmodel="constant", normalize=false,
+        optim="BFGS+Adam", objective="LL", parameters=nothing)
     ```
 
 ## Arguments
@@ -54,6 +47,10 @@ Argument      |Description
 
 See `MLPKriging` constructor for full details on the optimisation strategy.
 No return value — the `MLPKriging` object is modified in place.
+
+## Value
+
+No return value. The `MLPKriging` object is modified in place.
 
 ## Examples
 
@@ -84,3 +81,6 @@ print(mk)
 ```{literalinclude} examples/fit.MLPKriging.md.Rout
 :language: bash
 ```
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L119>

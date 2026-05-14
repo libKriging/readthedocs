@@ -76,6 +76,10 @@ The hyper-parameters (variance and vector of correlation ranges)
  `objective` , using the method given in `optim` .
 
 
+## Value
+
+No return value. The `Kriging` object is modified in place.
+
 ## Examples
 
 ```r
@@ -97,3 +101,6 @@ print(k)
 ```{literalinclude} examples/fit.Kriging.md.Rout
 :language: bash
 ```
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L264>

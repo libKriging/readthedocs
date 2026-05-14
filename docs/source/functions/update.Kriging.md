@@ -11,25 +11,24 @@ Update a `Kriging` model object with new points (added permanently).
 * Python
     ```python
     # k = Kriging(...)
-    k.update(y_u, X_u, noise_u = None)
+    k.update(y_u, X_u, refit = True)
     ```
 * R
     ```r
     # k = Kriging(...)
-    k$update(y_u, X_u, noise_u = NULL)
+    k$update(y_u, X_u, refit = TRUE)
     ```
 * Matlab/Octave
     ```octave
     % k = Kriging(...)
-    k.update(y_u, X_u, noise_u = [])
+    k.update(y_u, X_u, refit = true)
     ```
 
 * Julia
     ```julia
     # k = Kriging(...)
-    update(k, y_u, X_u, noise_u=nothing)
+    update(k, y_u, X_u, refit=true)
     ```
-
 
 ## Arguments
 
@@ -37,8 +36,17 @@ Argument      |Description
 ------------- |----------------
 `y_u`     |     Numeric vector of new responses (output).
 `X_u`     |     Numeric matrix of new input points.
-`noise_u`     |     Optional numeric vector of noise variances for the new observations. Only used if the model was fitted with `noise`.
+`refit`     |     Logical. If `TRUE` the model is re-fitted after the new observations are appended.
 
+## Details
+
+The new observations are added permanently to the training set.
+
+When the model was fitted with known heteroskedastic noise, a companion `noise_u` vector can also be provided for the appended observations.
+
+## Value
+
+No return value. The `Kriging` object is modified in place.
 
 ## Examples
 
@@ -75,3 +83,6 @@ polygon(c(x, rev(x)), c(p2$mean - 2 * p2$stdev, rev(p2$mean + 2 * p2$stdev)), bo
 :language: bash
 ```
 ![](examples/update.Kriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L550>

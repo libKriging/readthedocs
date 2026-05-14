@@ -1,5 +1,5 @@
 (SecParam)=
-## Parameters
+# Parameters
 
 The parameters of the models are given in the Table below. Note that
 the trend parameters in $\bs{\beta}$ are of a somewhat
@@ -14,9 +14,9 @@ used to fit the models, be it of frequentist or Bayesian nature.
 
 |   | Trend  | GP Cov  | Noise/Nug.   | Optim  |
 |:--|:--|:--|:--|:--|
-| `"Kriging"`  | $\bs{\beta}$ | $[\bs{\theta}, \, \sigma^2]$ |   | $\bs{\theta}$  |
-| `"NuggetKriging"`| $\bs{\beta}$  | $[\bs{\theta}, \, \sigma^2]$  |  $\tau^2$   | $[\bs{\theta}, \,\alpha]$, $\alpha:=\sigma^2/(\sigma^2 + \tau^2)$  |
-| `"NoiseKriging"` | $\bs{\beta}$  | $[\bs{\theta}, \, \sigma^2]$  | $[\tau_i^2]$  | $[\bs{\theta}, \, \sigma^2]$  |
+| `Kriging(noise = NULL)`  | $\bs{\beta}$ | $[\bs{\theta}, \, \sigma^2]$ |   | $\bs{\theta}$  |
+| `Kriging(noise = "nugget")` | $\bs{\beta}$  | $[\bs{\theta}, \, \sigma^2]$  |  $\tau^2$   | $[\bs{\theta}, \,\alpha]$, $\alpha:=\sigma^2/(\sigma^2 + \tau^2)$  |
+| `Kriging(noise = <variance vector>)` | $\bs{\beta}$  | $[\bs{\theta}, \, \sigma^2]$  | $[\tau_i^2]$  | $[\bs{\theta}, \, \sigma^2]$  |
 
 Parameters used for the trend, the smooth GP
 and the noise or nugget parts. The column **Optim** is for

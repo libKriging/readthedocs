@@ -38,7 +38,7 @@ Argument      |Description
 `nsim`     |     Number of simulations to draw.
 `seed`     |     Random seed used.
 `x`     |     Points in model input space (original, un-warped) where to simulate.
-
+`will_update` |     Logical. Set to `TRUE` if `update_simulate(...)` will be called afterwards.
 
 ## Details
 
@@ -78,3 +78,6 @@ matlines(x, s, col = rgb(0, 0, 1, 0.2), type = "l", lty = 1)
 :language: bash
 ```
 ![](examples/simulate.WarpKriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L370>

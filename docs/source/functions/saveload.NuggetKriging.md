@@ -55,6 +55,5 @@ print(load("nuk.json"))
 ```{literalinclude} ../functions/examples/nuk.json
 :language: json
 ```
-![](../functions/examples/saveload.NuggetKriging.md.png)
 
 

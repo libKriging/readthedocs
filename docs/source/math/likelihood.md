@@ -50,7 +50,7 @@ $$
 $$
 where $\m{B}$ is the [Bending Energy Matrix](SecBending) (BEM).
 
-### `"Kriging"`
+### `Kriging(noise = NULL)`
 
 In the `"Kriging"` case where $\m{C} = \sigma^2 \,
 \m{R}(\bs{\theta})$, both the ML estimates
@@ -63,9 +63,9 @@ on $\bs{\theta}$ only $L_{\texttt{prof}}(\bs{\theta})
 $\widehat{\bs{\beta}}$ depend on $\bs{\theta}$.
 
 
-### `"NuggetKriging"`
+### `Kriging(noise = "nugget")`
 
-In the `"NuggetKriging"` case, beside the vector $\bs{\theta}$ of
+In the `Kriging(noise = "nugget")` case, beside the vector $\bs{\theta}$ of
 correlation ranges and instead of the couple of parameters
 $[\sigma^2, \, \tau^2]$ or $[\sigma^2, \, \alpha]$ we can use the couple
 $[\nu^2,\, \alpha]$ defined by
@@ -93,7 +93,7 @@ $L_{\texttt{prof}}(\bs{\theta},\,\alpha) :=
 L(\bs{\theta}, \, \widehat{\nu}^2,\,
 \widehat{\bs{\beta}})$.
 
-### `"NoiseKriging"`
+### `Kriging(noise = <variance vector>)`
 
 The covariance matrix to be used in the likelihood is
 
@@ -121,9 +121,9 @@ correlation matrix (equal to $\m{R}$ or $\m{R}_\alpha$).
 
 |   |   |
 |:--|:--|
-| `"Kriging"` |  $-2 \ell_{\texttt{prof}}(\bs{\theta}) = \log \lvert\m{R}\rvert + n \log S^2$  |
-|`"NuggetKriging"` | $-2 \ell_{\texttt{prof}}(\bs{\theta}, \, \alpha) = \log \lvert\m{R}_\alpha\rvert + n \log S^2$  |
-|`"NoiseKriging`" | $-2 \ell_{\texttt{prof}}(\bs{\theta}, \, \sigma^2) = \log \lvert\m{C}\rvert + \m{e}^\top \m{C}^{-1}\m{e}$  |
+| `Kriging(noise = NULL)` |  $-2 \ell_{\texttt{prof}}(\bs{\theta}) = \log \lvert\m{R}\rvert + n \log S^2$  |
+| `Kriging(noise = "nugget")` | $-2 \ell_{\texttt{prof}}(\bs{\theta}, \, \alpha) = \log \lvert\m{R}_\alpha\rvert + n \log S^2$  |
+| `Kriging(noise = <variance vector>)` | $-2 \ell_{\texttt{prof}}(\bs{\theta}, \, \sigma^2) = \log \lvert\m{C}\rvert + \m{e}^\top \m{C}^{-1}\m{e}$  |
 
 Note that $\widehat{\bs{\beta}}$ and $\m{e}$ depend
 on the covariance parameters as do the correlation or covariance

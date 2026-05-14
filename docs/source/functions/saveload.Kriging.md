@@ -35,9 +35,19 @@ Save/Load a `Kriging` Model
     ```
 
 
+## Arguments
+
+Argument    |Description
+----------- |-----------
+`filename`  | Path to the JSON file used for persistence.
+
+## Details
+
+`save()` serialises the fitted model to JSON, and `load()` reconstructs a compatible `Kriging` object from that file. This is useful for checkpointing fitted models or exchanging them across wrapper sessions.
+
 ## Value
 
-The loaded object.
+`save()` writes the file and returns invisibly; `load()` returns the restored object.
 
 
 ## Examples
@@ -62,3 +72,7 @@ print(load("k.json"))
 ```{literalinclude} examples/k.json
 :language: json
 ```
+## Reference
+
+* Save: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L623>
+* Load: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L658>

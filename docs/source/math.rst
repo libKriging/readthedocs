@@ -14,8 +14,8 @@ Mathematical Background
    math/predictSimulate.md
    math/likelihood.md
    math/leaveOneOut.md
-   math/Bayesian.md   
-   math/update.rst
+   math/Bayesian.md
+   math/update.md
 
 Warping Strategies
 ------------------
@@ -33,6 +33,8 @@ Warping Strategies
    warping/mlp.md
    warping/categorical.md
    warping/ordinal.md
+
+.. _noise-strategies:
 
 Noise Strategies
 ----------------

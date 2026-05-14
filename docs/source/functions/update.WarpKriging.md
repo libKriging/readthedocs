@@ -11,41 +11,40 @@ Update a `WarpKriging` model with new observations.
 * Python
     ```python
     # wk = WarpKriging(...)
-    wk.update(y_new, X_new)
+    wk.update(y_u, X_u, refit = True)
     ```
 * R
     ```r
     # wk <- WarpKriging(...)
-    wk$update(y_new, X_new)
+    wk$update(y_u, X_u, refit = TRUE)
     ```
 * Matlab/Octave
     ```octave
     % wk = WarpKriging(...)
-    wk.update(y_new, X_new)
+    wk.update(y_u, X_u, refit = true)
     ```
 
 * Julia
     ```julia
     # wk = WarpKriging(...)
-    update(wk, y_new, X_new)
+    update(wk, y_u, X_u, refit=true)
     ```
-
 
 ## Arguments
 
 Argument      |Description
 ------------- |----------------
-`y_new`     |     New response values to append to the training set.
-`X_new`     |     New input points to append to the training set.
-
+`y_u`     |     Numeric vector of new response values.
+`X_u`     |     Numeric matrix of new input points.
+`refit`   |     Logical. If `TRUE` (default), re-optimise the warp and GP hyper-parameters after appending the new data.
 
 ## Details
 
-The new observations are added to the training set; the warped design
-$\Phi$, the correlation matrix and the Cholesky factor are recomputed so
-that subsequent calls to `predict` / `simulate` use all observations.
-The warp and GP hyper-parameters are **not** re-optimised by `update`;
-call `fit` again to re-optimise.
+The new observations are appended to the training set in the original input space, then re-encoded through the fitted warping specification. Set `refit = FALSE` to reuse the current warp and GP hyper-parameters; set `refit = TRUE` to re-optimise them jointly.
+
+## Value
+
+No return value. The `WarpKriging` object is modified in place.
 
 ## Examples
 
@@ -81,3 +80,6 @@ lines(x, p_u$mean, col = "red")
 :language: bash
 ```
 ![](examples/update.WarpKriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L399>

@@ -12,36 +12,53 @@ per-observation noise variances.
 ## Usage
 
 Just build the model:
-```r
-Kriging(kernel)
-# later, call fit(y,X,...)
-```
-or, build and fit at the same time:
-```r
-Kriging(
-  y,
-  X,
-  kernel,
-  regmodel = "constant",
-  normalize = FALSE,
-  optim = "BFGS",
-  objective = "LL",
-  parameters = NULL,
-  noise = NULL
-)
-```
 
+* Python
+    ```python
+    k = Kriging(kernel="matern3_2")
+    # later: k.fit(y, X, ..., noise=None)
+    ```
+* R
+    ```r
+    k <- Kriging(kernel = "matern3_2")
+    # later: k$fit(y, X, ..., noise = NULL)
+    ```
+* Matlab/Octave
+    ```octave
+    k = Kriging(kernel = "matern3_2");
+    % later: k.fit(y, X, ..., noise = [])
+    ```
 * Julia
     ```julia
-    using jlibkriging
-    y = [f(xi) for xi in X[:, 1]]
-    # build and fit
-    k = Kriging(y, X, "matern3_2")
-    # or build then fit separately
     k = Kriging("matern3_2")
-    fit(k, y, X)
+    # later: fit(k, y, X; noise=nothing)
     ```
 
+or build and fit at the same time:
+
+* Python
+    ```python
+    k = Kriging(y, X, kernel="matern3_2", regmodel="constant",
+                normalize=False, optim="BFGS", objective="LL",
+                parameters=None, noise=None)
+    ```
+* R
+    ```r
+    k <- Kriging(y, X, kernel = "matern3_2", regmodel = "constant",
+                 normalize = FALSE, optim = "BFGS", objective = "LL",
+                 parameters = NULL, noise = NULL)
+    ```
+* Matlab/Octave
+    ```octave
+    k = Kriging(y, X, kernel = "matern3_2", regmodel = "constant", ...
+                normalize = false, optim = "BFGS", objective = "LL", ...
+                parameters = [], noise = [])
+    ```
+* Julia
+    ```julia
+    k = Kriging(y, X, "matern3_2"; regmodel="constant", normalize=false,
+                optim="BFGS", objective="LL", parameters=nothing, noise=nothing)
+    ```
 
 ## Arguments
 
@@ -58,7 +75,7 @@ Argument      |Description
 `noise`     |     Either a numeric vector of per-observation noise variances, `"nugget"` to estimate a homogeneous nugget, or `NULL` (default) for noise-free interpolation.
 
 :::{seealso}
-[Noise Strategies](../noise/index.md) — detailed guide with examples for each noise mode.
+{ref}`noise-strategies` — overview of the three `noise` modes, with links to the dedicated examples.
 :::
 
 ## Details
@@ -105,3 +122,6 @@ matlines(x, s, col = rgb(0, 0, 1, 0.2), type = "l", lty = 1)
 :language: bash
 ```
 ![](examples/Kriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L97>

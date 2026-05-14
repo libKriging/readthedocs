@@ -11,25 +11,24 @@ Simulate from a `Kriging` Model Object.
 * Python
     ```python
     # k = Kriging(...)
-    k.simulate(nsim = 1, seed = 123, x, with_noise = True)
+    k.simulate(nsim = 1, seed = 123, x = x, will_update = False)
     ```
 * R
     ```r
     # k = Kriging(...)
-    k$simulate(nsim = 1, seed = 123, x, with_noise = TRUE)
+    k$simulate(nsim = 1, seed = 123, x = x, will_update = FALSE)
     ```
 * Matlab/Octave
     ```octave
     % k = Kriging(...)
-    k.simulate(nsim = 1, seed = 123, x, with_noise = true)
+    k.simulate(nsim = 1, seed = 123, x = x, will_update = false)
     ```
 
 * Julia
     ```julia
     # k = Kriging(...)
-    s = simulate(k, nsim=1, seed=123, x)
+    s = simulate(k, nsim=1, seed=123, x=x, will_update=false)
     ```
-
 
 ## Arguments
 
@@ -38,22 +37,17 @@ Argument      |Description
 `nsim`     |     Number of simulations to perform.
 `seed`     |     Random seed used.
 `x`     |     Points in model input space where to simulate.
-`with_noise`     |     Logical or numeric. If `TRUE` (or unset), noise/nugget from the fitted model is included in simulations. If `FALSE`, pure GP paths without noise. If a numeric vector, use these as per-point noise variances.
-`will_update`     |     Set to TRUE if wish to use `update_simulate(...)` later.
-
+`will_update`     |     Set to `TRUE` if you plan to call `update_simulate(...)` afterwards.
 
 ## Details
 
-This method draws $n_{\texttt{sim}}$ paths of the stochastic process
-$y(\mathbf{x})$ at the $n^\star$ given new input points
-$\mathbf{x}^\star_j$ conditional on the values $y(\mathbf{x}_i)$ at
-the input points used in the fit.
+This method draws $n_{\texttt{sim}}$ conditional paths of the latent process at the new input points.
+
+The exact simulation mode follows the fitted `noise` strategy: `noise = NULL` gives interpolation paths, `noise = "nugget"` uses the nugget model, and `noise = <variance vector>` uses the heteroskedastic model. Set `will_update = TRUE` to cache the simulation state for a later `update_simulate(...)` call.
 
 ## Value
 
-A matrix with `nrow(x)` rows and `nsim` columns containing the
-simulated paths at the inputs points given in `x`.
-
+A matrix with `nrow(x)` rows and `nsim` columns containing the simulated paths at the input points given in `x`.
 
 ## Examples
 
@@ -80,3 +74,6 @@ lines(x, s[ , 3], col = "blue")
 :language: bash
 ```
 ![](examples/simulate.Kriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L397>

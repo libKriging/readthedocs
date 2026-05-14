@@ -58,29 +58,14 @@ Kriging* see [here](SecPredAndSim) for more details.
 
 ## Value
 
-A list containing the element `mean` and possibly `return_stdev` and
-`return_cov`. 
+A list containing the element `mean` and, depending on the requested flags, `stdev`, `cov`, `mean_deriv`, and `stdev_deriv`.
 
-- The expectation in ` mean` is the estimate of the vector
-   $\textsf{E}[\mathbf{y}^\star \, \vert \,\mathbf{y}]$ with length
-   $n^\star$ where $\mathbf{y}^\star$ and $\mathbf{y}$ are the random
-   vectors corresponding to the observation and the "new" input
-   points. Similarly the conditional standard deviation in `return_stdev` is
-   a vector with length $n^\star$ and the conditional covariance in
-   `return_cov` is a $n^\star \times n^\star$ matrix. 
-   
-- The (optional) derivatives are two $n^\star \times d$ matrices
-   `pred_mean_deriv` and ` pred_sdtdev_deriv` with their row $j$
-   containing the vector of derivatives w.r.t. to the new input point
-   $\mathbf{x}^\star$ evaluated at $\mathbf{x}^\star =
-   \mathbf{x}^\star_j$. So the row $j$ of `pred_mean_deriv` contains
-   the derivative $\partial_{\mathbf{x}^\star}
-   \mathbb{E}[y(\mathbf{x}^\star) \, \vert \,\mathbf{y}]$.  evaluated
-   at $\mathbf{x}^\star = \mathbf{x}^\star_j$.
+- `mean` is the conditional expectation at the prediction inputs.
+- `stdev` is the vector of conditional standard deviations when `return_stdev = TRUE`.
+- `cov` is the conditional covariance matrix when `return_cov = TRUE`.
+- `mean_deriv` and `stdev_deriv` are the optional derivative matrices returned when `return_deriv = TRUE`.
 
-Note that for a `Kriging` object the prediction is actually an
-interpolation.
-
+For `noise = NULL`, prediction is an interpolation.
 
 ## Examples
 
@@ -106,3 +91,6 @@ polygon(c(x, rev(x)), c(p$mean - 2 * p$stdev, rev(p$mean + 2 * p$stdev)), border
 :language: bash
 ```
 ![](examples/predict.Kriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/KrigingClass.R#L337>

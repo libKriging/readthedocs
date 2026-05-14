@@ -1,29 +1,33 @@
 libKriging
 ==========
 
-libKriging is a C++ library for Kriging/Gaussian process regression.
+libKriging is a C++ library for Kriging / Gaussian process regression.
 
 Main features of libKriging are:
 
-* Standard implementation of most common kriging:
-    * ordinary/universal kriging
-    * nugget (homoskedastic) or noise (heteroskedastic)
-    * optimization of hyper-parameters (range, nugget, variance, ...) based on log-likelihood, leave-one-out, log-marginal-posterior
-    * (pre-)normalization of conditional data
+* Standard implementations of the most common Kriging models:
+    * ordinary / universal kriging
+    * noise-free interpolation with ``Kriging(noise = NULL)``
+    * homogeneous nugget estimation with ``Kriging(noise = "nugget")``
+    * known heteroskedastic noise with ``Kriging(noise = <variance vector>)``
+    * hyper-parameter optimisation based on log-likelihood, leave-one-out, or log-marginal-posterior
+    * optional normalisation of conditional data
 * Kriging with per-variable input warping (``WarpKriging``):
     * continuous warps: affine, Box-Cox, Kumaraswamy, monotone neural net, free MLP
     * categorical embedding and ordinal level warps for discrete inputs
-    * joint MLP warping over all inputs (cross-variable interactions)
-    * warp and GP hyper-parameters optimised jointly (bi-level BFGS + Adam)
-* Port from and comparison/testing with some standard kriging libraries:
+    * joint optimisation of warp and GP hyper-parameters
+* Deep kernel learning with ``MLPKriging``:
+    * shared MLP feature extractor over all inputs
+    * nonlinear latent feature space before GP evaluation
+* Ports and comparisons with established Kriging libraries:
     * https://CRAN.R-project.org/package=DiceKriging
     * https://CRAN.R-project.org/package=RobustGaSP
     * https://github.com/stk-kriging
-* Compatibility with commons OS/arch:
+* Compatibility with common OS / architecture targets:
     * Windows
     * Linux
-    * OSX (intel & ARM)
-* (Almost) full wrapper availables for:
+    * macOS (Intel and Apple Silicon)
+* Wrappers for:
     * Python: https://pypi.org/project/pylibkriging/
     * R: https://github.com/libKriging/rlibkriging
     * Octave
@@ -47,4 +51,3 @@ Contents
    api
    math
    references.rst
-

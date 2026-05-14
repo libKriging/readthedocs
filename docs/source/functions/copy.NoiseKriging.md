@@ -47,4 +47,3 @@ k$copy()
 ```{literalinclude} ../functions/examples/copy.NoiseKriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/copy.NoiseKriging.md.png)

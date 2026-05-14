@@ -59,7 +59,6 @@ k$logLikelihood()
 ```{literalinclude} ../functions/examples/logLikelihood.NoiseKriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/logLikelihood.NoiseKriging.md.png)
 
 
 ## Reference

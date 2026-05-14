@@ -55,6 +55,5 @@ print(load("nok.json"))
 ```{literalinclude} ../functions/examples/nok.json
 :language: json
 ```
-![](../functions/examples/saveload.NoiseKriging.md.png)
 
 

@@ -10,20 +10,25 @@ Must have called `simulate(..., will_update = TRUE)` first.
 * Python
     ```python
     # mk = MLPKriging(...)
-    # mk.simulate(nsim = 1, seed = 123, x, will_update = True)
+    # mk.simulate(nsim = 1, seed = 123, x = x, will_update = True)
     mk.update_simulate(y_u, X_u)
     ```
 * R
     ```r
     # mk <- MLPKriging(...)
-    # mk$simulate(nsim = 1, seed = 123, x, will_update = TRUE)
+    # mk$simulate(nsim = 1, seed = 123, x = x, will_update = TRUE)
     mk$update_simulate(y_u, X_u)
     ```
-
+* Matlab/Octave
+    ```octave
+    % mk = MLPKriging(...)
+    % mk.simulate(nsim = 1, seed = 123, x = x, will_update = true)
+    mk.update_simulate(y_u, X_u)
+    ```
 * Julia
     ```julia
     # mk = MLPKriging(...)
-    # simulate(mk, nsim=1, seed=123, x, will_update=true)
+    # simulate(mk, nsim=1, seed=123, x=x, will_update=true)
     update_simulate(mk, y_u, X_u)
     ```
 
@@ -33,6 +38,10 @@ Argument  |Description
 --------- |----------------
 `y_u`     | Numeric vector of new observations.
 `X_u`     | Numeric matrix of new input points.
+
+## Details
+
+This method applies the FOXY-style update to the previously cached simulation state. A prior call to `simulate(..., will_update = TRUE)` is required.
 
 ## Value
 
@@ -73,3 +82,6 @@ matlines(x, s_u, col = rgb(1, 0, 0, 0.15), type = "l", lty = 1)
 :language: bash
 ```
 ![](examples/update_simulate.MLPKriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L174>

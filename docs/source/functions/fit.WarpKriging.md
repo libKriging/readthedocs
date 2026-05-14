@@ -77,6 +77,10 @@ $\hat\sigma^2$ and $\hat\beta$ are computed analytically from $R(\theta)$
 and $y$, so the optimiser only searches over the warp parameters and
 $\log\theta$.
 
+## Value
+
+No return value. The `WarpKriging` object is modified in place.
+
 ## Examples
 
 ```r
@@ -104,3 +108,6 @@ print(wk)
 ```{literalinclude} examples/fit.WarpKriging.md.Rout
 :language: bash
 ```
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/WarpKrigingClass.R#L327>

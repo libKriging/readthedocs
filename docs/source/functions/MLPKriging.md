@@ -27,57 +27,41 @@ Just build the model:
     mk <- MLPKriging(hidden_dims = c(32L, 16L), d_out = 2L, kernel = "gauss")
     # later, call mk$fit(y, X, ...)
     ```
+* Matlab/Octave
+    ```octave
+    mk = MLPKriging(hidden_dims = [32, 16], d_out = 2, kernel = "gauss");
+    % later, call mk.fit(y, X, ...)
+    ```
+* Julia
+    ```julia
+    mk = MLPKriging(hidden_dims=[32, 16], d_out=2, kernel="gauss")
+    # later, call fit(mk, y, X, ...)
+    ```
 
-or, build and fit at the same time:
+or build and fit at the same time:
 * Python
     ```python
-    mk = MLPKriging(
-        y, X,
-        hidden_dims = [32, 16],
-        d_out       = 2,
-        activation  = "selu",
-        kernel      = "gauss",
-        regmodel    = "constant",
-        normalize   = False,
-        optim       = "BFGS+Adam",
-        objective   = "LL",
-        parameters  = None,
-    )
+    mk = MLPKriging(y, X, hidden_dims=[32, 16], d_out=2, activation="selu",
+                    kernel="gauss", regmodel="constant", normalize=False,
+                    optim="BFGS+Adam", objective="LL", parameters=None)
     ```
 * R
     ```r
-    mk <- MLPKriging(
-      y, X,
-      hidden_dims = c(32L, 16L),
-      d_out       = 2L,
-      activation  = "selu",
-      kernel      = "gauss",
-      regmodel    = "constant",
-      normalize   = FALSE,
-      optim       = "BFGS+Adam",
-      objective   = "LL",
-      parameters  = NULL
-    )
+    mk <- MLPKriging(y, X, hidden_dims = c(32L, 16L), d_out = 2L, activation = "selu",
+                     kernel = "gauss", regmodel = "constant", normalize = FALSE,
+                     optim = "BFGS+Adam", objective = "LL", parameters = NULL)
     ```
-
+* Matlab/Octave
+    ```octave
+    mk = MLPKriging(y, X, hidden_dims = [32, 16], d_out = 2, activation = "selu", ...
+                    kernel = "gauss", regmodel = "constant", normalize = false, ...
+                    optim = "BFGS+Adam", objective = "LL", parameters = [])
+    ```
 * Julia
     ```julia
-    using jlibkriging
-    # build only
-    mk = MLPKriging(hidden_dims=[32, 16], d_out=2, kernel="gauss")
-    # later, call fit(mk, y, X, ...)
-
-    # or build and fit at the same time
-    mk = MLPKriging(y, X,
-                    hidden_dims=[32, 16],
-                    d_out=2,
-                    activation="selu",
-                    kernel="gauss",
-                    regmodel="constant",
-                    normalize=false,
-                    optim="BFGS+Adam",
-                    objective="LL",
-                    parameters=nothing)
+    mk = MLPKriging(y, X, hidden_dims=[32, 16], d_out=2, activation="selu",
+                    kernel="gauss", regmodel="constant", normalize=false,
+                    optim="BFGS+Adam", objective="LL", parameters=nothing)
     ```
 
 ## Arguments
@@ -143,3 +127,6 @@ polygon(c(x, rev(x)), c(p$mean - 2 * p$stdev, rev(p$mean + 2 * p$stdev)),
 :language: bash
 ```
 ![](examples/MLPKriging.md.png)
+## Reference
+
+* Source: <https://github.com/libKriging/rlibkriging/blob/master/R/MLPKrigingClass.R#L63>
