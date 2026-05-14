@@ -66,3 +66,20 @@ Prediction and simulation
    functions/predict.MLPKriging.md
    functions/simulate.MLPKriging.md
    functions/update_simulate.MLPKriging.md
+
+Warping Gallery
+---------------
+
+.. toctree::
+   :maxdepth: 1
+
+   warping/index.md
+   warping/none.md
+   warping/affine.md
+   warping/boxcox.md
+   warping/kumaraswamy.md
+   warping/knots.md
+   warping/neural_mono.md
+   warping/mlp.md
+   warping/categorical.md
+   warping/ordinal.md

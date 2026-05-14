@@ -103,17 +103,18 @@ Argument      |Description
 Each entry of `warping` is a string describing the transform for one
 input variable. Supported forms:
 
-Spec | Description | Params
------|-------------|-------
-`"none"`             | identity (no warping) | 0
-`"affine"`           | $w(x) = a\,x + b$ | 2
-`"boxcox"`           | Box–Cox $w(x) = (x^\lambda - 1)/\lambda$ | 1
-`"kumaraswamy"`      | Kumaraswamy CDF on $[0,1]$: $w(x) = 1 - (1 - x^a)^b$ | 2
-`"neural_mono(H)"`   | small monotone neural network, `H` hidden units | $3H+1$
-`"mlp(h1:h2,q,act)"` | unconstrained MLP (multi-dim output `q`, activation `act`) | varies
-`"categorical(L,q)"` | categorical embedding: `L` levels in $\mathbb{R}^q$ | $L\cdot q$
-`"ordinal(L)"`       | ordered positions for `L` discrete levels | $L-1$
-`"mlp_joint(h1:h2,q,act)"` | single MLP taking **all** inputs jointly (replaces per-variable warps) | varies
+Spec | Description | Params | Details
+-----|-------------|--------|-------
+`"none"`             | identity (no warping) | 0 | [→](../warping/none.md)
+`"affine"`           | $w(x) = a\,x + b$ | 2 | [→](../warping/affine.md)
+`"boxcox"`           | Box–Cox $w(x) = (x^\lambda - 1)/\lambda$ | 1 | [→](../warping/boxcox.md)
+`"kumaraswamy"`      | Kumaraswamy CDF on $[0,1]$: $w(x) = 1 - (1 - x^a)^b$ | 2 | [→](../warping/kumaraswamy.md)
+`"knots(K)"`         | piecewise-linear monotone, `K` knots | $K+1$ | [→](../warping/knots.md)
+`"neural_mono(H)"`   | small monotone neural network, `H` hidden units | $3H+1$ | [→](../warping/neural_mono.md)
+`"mlp(h1:h2,q,act)"` | unconstrained MLP (multi-dim output `q`, activation `act`) | varies | [→](../warping/mlp.md)
+`"categorical(L,q)"` | categorical embedding: `L` levels in $\mathbb{R}^q$ | $L\cdot q$ | [→](../warping/categorical.md)
+`"ordinal(L)"`       | ordered positions for `L` discrete levels | $L-1$ | [→](../warping/ordinal.md)
+`"mlp_joint(h1:h2,q,act)"` | single MLP taking **all** inputs jointly | varies | (see [`MLPKriging`](MLPKriging.md))
 
 Defaults for omitted sub-arguments: `"neural_mono"` → `"neural_mono(8)"`,
 `"mlp"` → `"mlp(16:8,2,selu)"`, `"categorical(5)"` → `"categorical(5,2)"`.
