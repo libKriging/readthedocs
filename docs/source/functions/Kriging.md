@@ -46,6 +46,9 @@ Argument      |Description
 `parameters`     |     Initial values for the hyper-parameters. When provided this must be named list with elements `"sigma2"`  and `"theta"` containing the initial value(s) for the variance and for the range parameters. If `theta` is a matrix with more than one row, each row is used as a starting point for optimization.
 `noise`     |     Either a numeric vector of per-observation noise variances, `"nugget"` to estimate a homogeneous nugget, or `NULL` (default) for noise-free interpolation.
 
+:::{seealso}
+[Noise Strategies](../noise/index.md) — detailed guide with examples for each noise mode.
+:::
 
 ## Details
 

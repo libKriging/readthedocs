@@ -83,3 +83,14 @@ Warping Gallery
    warping/mlp.md
    warping/categorical.md
    warping/ordinal.md
+
+Noise Strategies
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   noise/index.md
+   noise/noise-free.md
+   noise/nugget.md
+   noise/heteroskedastic.md
