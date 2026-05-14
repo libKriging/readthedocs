@@ -120,7 +120,7 @@ Argument      |Description
 ## Warping specifications
 
 Each entry of `warping` is a string describing the transform for one
-input variable. Supported forms:
+input variable. Supported forms (see also the [**Warping Gallery**](../warping/index.md) for full examples and plots):
 
 Spec | Description | Params | Details
 -----|-------------|--------|-------
