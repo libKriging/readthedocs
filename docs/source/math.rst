@@ -1,5 +1,5 @@
-Models description
-==================
+Mathematical Background
+=======================
 
 
 .. toctree::

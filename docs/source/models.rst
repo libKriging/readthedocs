@@ -1,5 +1,5 @@
-Models
-======
+Model Description
+=================
 
 Detailed descriptions of each model variant, warping strategy, and noise
 handling mode, with worked examples.
