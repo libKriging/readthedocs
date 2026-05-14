@@ -71,3 +71,12 @@ legend("topright", paste("level", 0:(n_levels-1)),
 | Ordering constraint | ✔ enforced | ✘ ignored |
 | Free parameters | $L-1$ | $L \times q$ |
 | Suitable when | levels have a natural order | levels are unordered |
+
+## References
+
+Saves, P., Lafage, R., Bartoli, N., Diouane, Y., Bussemaker, J., Lefebvre, T., Hwang, J. T., Morlier, J., & Martins, J. R. R. A. (2024). SMT 2.0: A Surrogate Modeling Toolbox with a Focus on Hierarchical and Mixed Variables Gaussian Processes. *Advances in Engineering Software*, 188, 103571.
+DOI: [10.1016/j.advengsoft.2023.103571](https://doi.org/10.1016/j.advengsoft.2023.103571) · arXiv: [2305.13998](https://arxiv.org/abs/2305.13998)
+
+Qian, P. Z. G., Wu, H., & Wu, C. F. J. (2008). Gaussian Process Models for Computer Experiments with Qualitative and Quantitative Factors. *Technometrics*, 50(3), 383–396.
+DOI: [10.1198/004017008000000262](https://doi.org/10.1198/004017008000000262)
+

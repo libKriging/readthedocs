@@ -75,3 +75,11 @@ polygon(c(x, rev(x)),
 
 ![Monotone NN regression](img/neural_mono.png)
 
+## References
+
+Snelson, E., Rasmussen, C. E., & Ghahramani, Z. (2004). Warped Gaussian Processes. *Advances in Neural Information Processing Systems 16 (NeurIPS 2003)*, pp. 337–344.
+URL: [papers.nips.cc/paper/2603](https://papers.nips.cc/paper/2603-warped-gaussian-processes)
+
+Snoek, J., Swersky, K., Zemel, R. S., & Adams, R. P. (2014). Input Warping for Bayesian Optimization of Non-Stationary Functions. *Proceedings of ICML 2014*, PMLR 32(2):1674–1682.
+arXiv: [1402.0929](https://arxiv.org/abs/1402.0929)
+

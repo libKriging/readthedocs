@@ -66,3 +66,8 @@ legend("topright", paste("level", 0:(n_levels-1)),
 
 ![Categorical warping per-level prediction](img/categorical.png)
 
+## Reference
+
+Garrido-Merchán, E. C., & Hernández-Lobato, D. (2020). Dealing with Categorical and Integer-Valued Variables in Bayesian Optimization with Gaussian Processes. *Neurocomputing*, 380, 20–35.
+DOI: [10.1016/j.neucom.2019.11.004](https://doi.org/10.1016/j.neucom.2019.11.004) · arXiv: [1805.03463](https://arxiv.org/abs/1805.03463)
+

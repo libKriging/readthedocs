@@ -76,3 +76,8 @@ par(mfrow = c(1, 1))
 
 ![MLP warping on Branin function](img/mlp.png)
 
+## Reference
+
+Wilson, A. G., Hu, Z., Salakhutdinov, R., & Xing, E. P. (2016). Deep Kernel Learning. *Proceedings of AISTATS 2016*, PMLR 51:370–378.
+arXiv: [1511.02222](https://arxiv.org/abs/1511.02222)
+

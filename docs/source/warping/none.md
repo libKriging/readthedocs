@@ -44,3 +44,8 @@ legend("topright", c("truth", "GP mean", "±2σ"),
 
 ![none warping regression example](img/none.png)
 
+## Reference
+
+Rasmussen, C. E., & Williams, C. K. I. (2006). *Gaussian Processes for Machine Learning*. MIT Press.
+DOI: [10.7551/mitpress/3206.001.0001](https://doi.org/10.7551/mitpress/3206.001.0001)
+

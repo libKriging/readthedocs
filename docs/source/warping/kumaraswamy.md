@@ -70,3 +70,11 @@ polygon(c(x, rev(x)),
 
 ![Kumaraswamy warping regression](img/kumaraswamy.png)
 
+## References
+
+Snoek, J., Swersky, K., Zemel, R. S., & Adams, R. P. (2014). Input Warping for Bayesian Optimization of Non-Stationary Functions. *Proceedings of ICML 2014*, PMLR 32(2):1674–1682.
+arXiv: [1402.0929](https://arxiv.org/abs/1402.0929)
+
+Kumaraswamy, P. (1980). A generalized probability density function for double-bounded random processes. *Journal of Hydrology*, 46(1–2), 79–88.
+DOI: [10.1016/0022-1694(80)90008-X](https://doi.org/10.1016/0022-1694(80)90008-X)
+

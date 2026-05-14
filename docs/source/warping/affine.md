@@ -61,3 +61,9 @@ polygon(c(x, rev(x)),
 
 ![Affine warping regression](img/affine.png)
 
+## Reference
+
+Rasmussen, C. E., & Williams, C. K. I. (2006). *Gaussian Processes for Machine Learning*. MIT Press.
+DOI: [10.7551/mitpress/3206.001.0001](https://doi.org/10.7551/mitpress/3206.001.0001)
+*(Sections 4.1–4.2 on ARD kernels and input scaling.)*
+

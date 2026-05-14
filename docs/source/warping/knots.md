@@ -87,3 +87,4 @@ polygon(c(x, rev(x)),
 ## Reference
 
 Xiong, Y., Chen, W., Apley, D., & Ding, X. (2007). *A non-stationary covariance-based Kriging method for metamodelling in engineering design*. International Journal for Numerical Methods in Engineering, 71(6), 733–756.
+DOI: [10.1002/nme.1969](https://doi.org/10.1002/nme.1969)

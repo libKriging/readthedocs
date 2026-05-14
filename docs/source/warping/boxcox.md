@@ -69,3 +69,8 @@ polygon(c(x, rev(x)),
 
 ![Box-Cox warping regression](img/boxcox.png)
 
+## Reference
+
+Box, G. E. P., & Cox, D. R. (1964). An Analysis of Transformations. *Journal of the Royal Statistical Society: Series B*, 26(2), 211–252.
+DOI: [10.1111/j.2517-6161.1964.tb00553.x](https://doi.org/10.1111/j.2517-6161.1964.tb00553.x)
+
