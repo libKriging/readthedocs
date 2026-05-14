@@ -44,7 +44,6 @@ Contents
 
    install
    usage
-   models
    api
    math
    references.rst
