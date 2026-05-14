@@ -54,3 +54,30 @@ $\theta$ alone.
 
 A list with fields `logLikelihood`, optionally `logLikelihoodGrad`
 (vector w.r.t. $\log\theta$) and `logLikelihoodHess`.
+
+## Examples
+
+```r
+f <- function(x) 1 - 1 / 2 * (sin(12 * x) / (1 + x) + 2 * cos(7 * x) * x^5 + 0.7)
+X <- as.matrix(seq(0.05, 0.95, length.out = 10))
+y <- f(X)
+
+wk <- WarpKriging(
+  y, X,
+  warping = "kumaraswamy",
+  kernel = "gauss",
+  parameters = list(max_iter_adam = "20", max_iter_bfgs = "10")
+)
+print(wk)
+ll <- function(theta) wk$logLikelihoodFun(theta)$logLikelihood
+
+t <- seq(from = 0.2, to = 12, length.out = 101)
+plot(t, sapply(t, ll), type = "l")
+abline(v = wk$theta(), col = "blue")
+```
+
+### Results
+```{literalinclude} examples/logLikelihoodFun.WarpKriging.md.Rout
+:language: bash
+```
+![](examples/logLikelihoodFun.WarpKriging.md.png)

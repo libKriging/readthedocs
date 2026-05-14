@@ -1,0 +1,13 @@
+* MLPKriging
+* data: 10x[0.05,0.95] -> 10x[0.163421,0.976851]
+* trend constant (est.): -745.4
+* variance (est.): 3.13668e+08
+* covariance:
+  * kernel: gauss
+  * range (est.): 2.88992
+  * warpings:
+      joint: "mlp_joint(4,1,tanh)"  →  MLPJoint(1 -> 4 -> 1, 13 params)
+  * total warp params: 13
+  * fit:
+    * objective: LL
+    * optim: BFGS+Adam

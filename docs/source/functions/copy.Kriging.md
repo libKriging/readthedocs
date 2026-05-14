@@ -50,9 +50,6 @@ k$copy()
 ```
 
 ### Results
-```{literalinclude} ../functions/examples/copy.Kriging.md.Rout
+```{literalinclude} examples/copy.Kriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/copy.Kriging.md.png)
-
-

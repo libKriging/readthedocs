@@ -34,3 +34,40 @@ Argument  |Description
 ## Value
 
 No return value. The `MLPKriging` object is modified in place.
+
+## Examples
+
+```r
+f <- function(x) 1 - 1 / 2 * (sin(12 * x) / (1 + x) + 2 * cos(7 * x) * x^5 + 0.7)
+X <- as.matrix(seq(0.05, 0.95, length.out = 10))
+y <- f(X)
+
+mk <- MLPKriging(
+  y, X,
+  hidden_dims = c(4L),
+  d_out = 1L,
+  activation = "tanh",
+  kernel = "gauss",
+  parameters = list(max_iter_adam = "20", max_iter_bfgs = "10")
+)
+plot(f)
+points(X, y, col = "blue")
+
+x <- as.matrix(seq(0, 1, length.out = 101))
+p <- mk$predict(x, return_stdev = TRUE)
+lines(x, p$mean, col = "blue")
+
+X_u <- as.matrix(c(0.15, 0.85))
+y_u <- f(X_u)
+mk$update(y_u, X_u)
+points(X_u, y_u, col = "red", pch = 16)
+
+p_u <- mk$predict(x, return_stdev = TRUE)
+lines(x, p_u$mean, col = "red")
+```
+
+### Results
+```{literalinclude} examples/update.MLPKriging.md.Rout
+:language: bash
+```
+![](examples/update.MLPKriging.md.png)

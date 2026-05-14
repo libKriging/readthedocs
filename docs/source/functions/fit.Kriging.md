@@ -93,11 +93,7 @@ print("after fit")
 print(k)
 ```
 
-
 ### Results
-```{literalinclude} ../functions/examples/fit.Kriging.md.Rout
+```{literalinclude} examples/fit.Kriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/fit.Kriging.md.png)
-
-

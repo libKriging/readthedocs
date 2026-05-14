@@ -115,19 +115,31 @@ An object of class `"MLPKriging"`. Use with its `predict`, `simulate`, `update` 
 ## Examples
 
 ```r
-X <- as.matrix(seq(0.01, 0.99, length.out = 10))
-f <- function(x) 1 - 1/2 * (sin(12*x)/(1+x) + 2*cos(7*x)*x^5 + 0.7)
+f <- function(x) 1 - 1 / 2 * (sin(12 * x) / (1 + x) + 2 * cos(7 * x) * x^5 + 0.7)
+X <- as.matrix(seq(0.05, 0.95, length.out = 10))
 y <- f(X)
 
-mk <- MLPKriging(y, X, hidden_dims = c(16L, 8L), d_out = 2L,
-                 activation = "selu", kernel = "gauss")
+mk <- MLPKriging(
+  y, X,
+  hidden_dims = c(4L),
+  d_out = 1L,
+  activation = "tanh",
+  kernel = "gauss",
+  parameters = list(max_iter_adam = "20", max_iter_bfgs = "10")
+)
 print(mk)
 
-x  <- as.matrix(seq(0, 1, length.out = 101))
-p  <- mk$predict(x, return_stdev = TRUE)
+x <- as.matrix(seq(0, 1, length.out = 101))
+p <- mk$predict(x, return_stdev = TRUE)
 plot(f)
 points(X, y)
 lines(x, p$mean, col = "blue")
-polygon(c(x, rev(x)), c(p$mean - 2*p$stdev, rev(p$mean + 2*p$stdev)),
+polygon(c(x, rev(x)), c(p$mean - 2 * p$stdev, rev(p$mean + 2 * p$stdev)),
         border = NA, col = rgb(0, 0, 1, 0.2))
 ```
+
+### Results
+```{literalinclude} examples/MLPKriging.md.Rout
+:language: bash
+```
+![](examples/MLPKriging.md.png)

@@ -76,3 +76,31 @@ The concentrated profile log-likelihood is used internally:
 $\hat\sigma^2$ and $\hat\beta$ are computed analytically from $R(\theta)$
 and $y$, so the optimiser only searches over the warp parameters and
 $\log\theta$.
+
+## Examples
+
+```r
+f <- function(x) 1 - 1 / 2 * (sin(12 * x) / (1 + x) + 2 * cos(7 * x) * x^5 + 0.7)
+X <- as.matrix(seq(0.05, 0.95, length.out = 10))
+y <- f(X)
+
+wk <- WarpKriging(
+  y, X,
+  warping = "kumaraswamy",
+  kernel = "gauss",
+  parameters = list(max_iter_adam = "20", max_iter_bfgs = "10")
+)
+cat("before refit\n")
+print(wk)
+
+wk$fit(y, X,
+       parameters = list(max_iter_adam = "20", max_iter_bfgs = "10"))
+
+cat("after refit\n")
+print(wk)
+```
+
+### Results
+```{literalinclude} examples/fit.WarpKriging.md.Rout
+:language: bash
+```

@@ -63,14 +63,6 @@ k$logMargPost()
 ```
 
 ### Results
-```{literalinclude} ../functions/examples/logMargPost.Kriging.md.Rout
+```{literalinclude} examples/logMargPost.Kriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/logMargPost.Kriging.md.png)
-
-
-## Reference
-
-* Code: <https://github.com/libKriging/libKriging/blob/master/src/lib/Kriging.cpp#L494>
-* The [RobustGaSP R package](https://CRAN.R-project.org/package=RobustGaSP)
-

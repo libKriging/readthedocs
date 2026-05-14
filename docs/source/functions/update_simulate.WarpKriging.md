@@ -56,29 +56,33 @@ simulated paths at the input points given in `x`.
 ## Examples
 
 ```r
-branin <- function(x) {
-  if (!is.matrix(x)) x <- matrix(x, nrow = 1)
-  x1 <- x[, 1] * 15 - 5
-  x2 <- x[, 2] * 15
-  (x2 - 5/(4*pi^2)*x1^2 + 5/pi*x1 - 6)^2 +
-    10 * (1 - 1/(8*pi)) * cos(x1) + 10
-}
+f <- function(x) 1 - 1 / 2 * (sin(12 * x) / (1 + x) + 2 * cos(7 * x) * x^5 + 0.7)
+X <- as.matrix(seq(0.05, 0.95, length.out = 10))
+y <- f(X)
 
-set.seed(42)
-n <- 20
-X <- matrix(runif(n * 2), n, 2)
-y <- branin(X)
+wk <- WarpKriging(
+  y, X,
+  warping = "kumaraswamy",
+  kernel = "gauss",
+  parameters = list(max_iter_adam = "20", max_iter_bfgs = "10")
+)
+x <- as.matrix(seq(0, 1, length.out = 101))
+s <- wk$simulate(nsim = 10, seed = 123, x = x, will_update = TRUE)
 
-wk <- WarpKriging(y, X,
-                  warping = c("kumaraswamy", "kumaraswamy"),
-                  kernel  = "matern5_2")
+X_u <- as.matrix(c(0.15, 0.85))
+y_u <- f(X_u)
+s_u <- wk$update_simulate(y_u, X_u)
+cat("Updated simulation size:", dim(s_u), "\n")
 
-x <- as.matrix(expand.grid(seq(0, 1, l=10), seq(0, 1, l=10)))
-s <- wk$simulate(nsim = 5, seed = 123, x = x, will_update = TRUE)
-
-X_u <- matrix(runif(4), 2, 2)
-y_u <- branin(X_u)
-
-su <- wk$update_simulate(y_u, X_u)
-cat("Updated simulation size:", dim(su), "\n")
+plot(f)
+points(X, y, col = "blue")
+points(X_u, y_u, col = "red", pch = 16)
+matlines(x, s, col = rgb(0, 0, 1, 0.15), type = "l", lty = 1)
+matlines(x, s_u, col = rgb(1, 0, 0, 0.15), type = "l", lty = 1)
 ```
+
+### Results
+```{literalinclude} examples/update_simulate.WarpKriging.md.Rout
+:language: bash
+```
+![](examples/update_simulate.WarpKriging.md.png)

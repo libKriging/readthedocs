@@ -54,3 +54,33 @@ Argument      |Description
 
 See `MLPKriging` constructor for full details on the optimisation strategy.
 No return value — the `MLPKriging` object is modified in place.
+
+## Examples
+
+```r
+f <- function(x) 1 - 1 / 2 * (sin(12 * x) / (1 + x) + 2 * cos(7 * x) * x^5 + 0.7)
+X <- as.matrix(seq(0.05, 0.95, length.out = 10))
+y <- f(X)
+
+mk <- MLPKriging(
+  y, X,
+  hidden_dims = c(4L),
+  d_out = 1L,
+  activation = "tanh",
+  kernel = "gauss",
+  parameters = list(max_iter_adam = "20", max_iter_bfgs = "10")
+)
+cat("before refit\n")
+print(mk)
+
+mk$fit(y, X,
+       parameters = list(max_iter_adam = "20", max_iter_bfgs = "10"))
+
+cat("after refit\n")
+print(mk)
+```
+
+### Results
+```{literalinclude} examples/fit.MLPKriging.md.Rout
+:language: bash
+```

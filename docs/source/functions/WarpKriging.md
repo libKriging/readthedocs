@@ -166,24 +166,29 @@ An object `"WarpKriging"`. Should be used with its `predict`, `simulate`,
 ## Examples
 
 ```r
-branin <- function(x) {
-  if (!is.matrix(x)) x <- matrix(x, nrow = 1)
-  x1 <- x[, 1] * 15 - 5
-  x2 <- x[, 2] * 15
-  (x2 - 5/(4*pi^2)*x1^2 + 5/pi*x1 - 6)^2 +
-    10 * (1 - 1/(8*pi)) * cos(x1) + 10
-}
-
-set.seed(42)
-n <- 30
-X <- matrix(runif(n * 2), n, 2)
-y <- branin(X)
+f <- function(x) 1 - 1 / 2 * (sin(12 * x) / (1 + x) + 2 * cos(7 * x) * x^5 + 0.7)
+X <- as.matrix(seq(0.05, 0.95, length.out = 10))
+y <- f(X)
 
 wk <- WarpKriging(
   y, X,
-  warping = c("kumaraswamy", "kumaraswamy"),
-  kernel  = "matern5_2",
-  optim   = "BFGS+Adam"
+  warping = "kumaraswamy",
+  kernel = "gauss",
+  parameters = list(max_iter_adam = "20", max_iter_bfgs = "10")
 )
 print(wk)
+
+x <- as.matrix(seq(0, 1, length.out = 101))
+p <- wk$predict(x, return_stdev = TRUE)
+plot(f)
+points(X, y)
+lines(x, p$mean, col = "blue")
+polygon(c(x, rev(x)), c(p$mean - 2 * p$stdev, rev(p$mean + 2 * p$stdev)),
+        border = NA, col = rgb(0, 0, 1, 0.2))
 ```
+
+### Results
+```{literalinclude} examples/WarpKriging.md.Rout
+:language: bash
+```
+![](examples/WarpKriging.md.png)

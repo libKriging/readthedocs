@@ -57,12 +57,6 @@ k$logLikelihood()
 ```
 
 ### Results
-```{literalinclude} ../functions/examples/logLikelihood.Kriging.md.Rout
+```{literalinclude} examples/logLikelihood.Kriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/logLikelihood.Kriging.md.png)
-
-
-## Reference
-
-* Code: <https://github.com/libKriging/libKriging/blob/master/src/lib/Kriging.cpp#L94>

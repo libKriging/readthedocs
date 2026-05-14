@@ -66,11 +66,6 @@ k$leaveOneOutVec(k$theta())
 ```
 
 ### Results
-```{literalinclude} ../examples/leaveOneOutVec.Kriging.md.Rout
+```{literalinclude} examples/leaveOneOutVec.Kriging.md.Rout
 :language: bash
 ```
-![](../examples/leaveOneOutVec.Kriging.md.png)
-
-
-
-

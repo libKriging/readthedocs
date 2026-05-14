@@ -102,13 +102,7 @@ polygon(c(x, rev(x)), c(p$mean - 2 * p$stdev, rev(p$mean + 2 * p$stdev)), border
 ```
 
 ### Results
-```{literalinclude} ../functions/examples/predict.Kriging.md.Rout
+```{literalinclude} examples/predict.Kriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/predict.Kriging.md.png)
-
-
-## Reference
-
-* Code: <https://github.com/libKriging/libKriging/blob/master/src/lib/Kriging.cpp#L1326>
-
+![](examples/predict.Kriging.md.png)

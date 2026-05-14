@@ -55,12 +55,6 @@ k$leaveOneOut()
 ```
 
 ### Results
-```{literalinclude} ../functions/examples/leaveOneOut.Kriging.md.Rout
+```{literalinclude} examples/leaveOneOut.Kriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/leaveOneOut.Kriging.md.png)
-
-
-## Reference
-
-* Code: <https://github.com/libKriging/libKriging/blob/master/src/lib/Kriging.cpp#L350>

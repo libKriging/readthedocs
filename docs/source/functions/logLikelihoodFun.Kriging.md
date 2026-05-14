@@ -77,7 +77,7 @@ abline(v = k$theta(), col = "blue")
 ```
 
 ### Results
-```{literalinclude} ../functions/examples/logLikelihoodFun.Kriging.md.Rout
+```{literalinclude} examples/logLikelihoodFun.Kriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/logLikelihoodFun.Kriging.md.png)
+![](examples/logLikelihoodFun.Kriging.md.png)

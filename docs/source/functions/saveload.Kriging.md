@@ -56,12 +56,9 @@ print(load("k.json"))
 ```
 
 ### Results
-```{literalinclude} ../functions/examples/saveload.Kriging.md.Rout
+```{literalinclude} examples/saveload.Kriging.md.Rout
 :language: bash
 ```
-```{literalinclude} ../functions/examples/k.json
+```{literalinclude} examples/k.json
 :language: json
 ```
-![](../functions/examples/saveload.Kriging.md.png)
-
-

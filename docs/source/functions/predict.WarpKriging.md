@@ -66,3 +66,32 @@ model because the chain rule must be propagated through each warp.
 A list containing `mean` and optionally `stdev`, `cov`, `pred_mean_deriv`,
 `pred_stdev_deriv`. Note that for a `WarpKriging` object the prediction
 is an interpolation at the training points (like `Kriging`).
+
+## Examples
+
+```r
+f <- function(x) 1 - 1 / 2 * (sin(12 * x) / (1 + x) + 2 * cos(7 * x) * x^5 + 0.7)
+X <- as.matrix(seq(0.05, 0.95, length.out = 10))
+y <- f(X)
+
+wk <- WarpKriging(
+  y, X,
+  warping = "kumaraswamy",
+  kernel = "gauss",
+  parameters = list(max_iter_adam = "20", max_iter_bfgs = "10")
+)
+x <- as.matrix(seq(0, 1, length.out = 101))
+p <- wk$predict(x, return_stdev = TRUE)
+
+plot(f)
+points(X, y, col = "blue", pch = 16)
+lines(x, p$mean, col = "blue")
+polygon(c(x, rev(x)), c(p$mean - 2 * p$stdev, rev(p$mean + 2 * p$stdev)),
+        border = NA, col = rgb(0, 0, 1, 0.2))
+```
+
+### Results
+```{literalinclude} examples/predict.WarpKriging.md.Rout
+:language: bash
+```
+![](examples/predict.WarpKriging.md.png)

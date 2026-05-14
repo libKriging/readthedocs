@@ -76,14 +76,7 @@ lines(x, s[ , 3], col = "blue")
 ```
 
 ### Results
-```{literalinclude} ../functions/examples/simulate.Kriging.md.Rout
+```{literalinclude} examples/simulate.Kriging.md.Rout
 :language: bash
 ```
-![](../functions/examples/simulate.Kriging.md.png)
-
-
-## Reference
-
-* Code: <https://github.com/libKriging/libKriging/blob/master/src/lib/Kriging.cpp#L1501>
-
-
+![](examples/simulate.Kriging.md.png)
