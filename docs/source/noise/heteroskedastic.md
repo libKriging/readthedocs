@@ -64,6 +64,8 @@ legend("topright",
        lwd = c(1, NA, 2, 8))
 ```
 
+![Heteroskedastic noise with per-observation error bars](img/heteroskedastic-errorbars.png)
+
 ## Example — updating with new noisy observations
 
 ```r
@@ -133,3 +135,5 @@ legend("topright",
        c("noise = NULL", 'noise = "nugget"', "noise = variance vector"),
        col = cols, lwd = 2)
 ```
+
+![Three-way comparison of noise strategies](img/three-way-comparison.png)

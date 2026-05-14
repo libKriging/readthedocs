@@ -75,6 +75,8 @@ polygon(c(x, rev(x)),
 par(mfrow = c(1, 1))
 ```
 
+![Nugget vs noise-free comparison](img/nugget-comparison.png)
+
 ## Accessing the estimated nugget
 
 ```r

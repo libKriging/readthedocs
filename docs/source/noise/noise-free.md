@@ -60,3 +60,5 @@ legend("topright",
        col = c("grey40", "black", "steelblue", rgb(0.27, 0.51, 0.71, 0.5)),
        lwd = c(1, NA, 2, 8))
 ```
+
+![Noise-free interpolation](img/noise-free.png)
