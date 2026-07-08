@@ -19,6 +19,9 @@ Main features of libKriging are:
 * Deep kernel learning with ``MLPKriging``:
     * shared MLP feature extractor over all inputs
     * nonlinear latent feature space before GP evaluation
+* Large designs (:math:`n \sim 10^5`-:math:`10^6`):
+    * ``NestedKriging``: divide-and-conquer GP, PoE/gPoE/BCM/rBCM and the optimal NK aggregation
+    * ``objective="VLL(m)"``: Vecchia approximated log-likelihood for a Kriging fit
 * Ports and comparisons with established Kriging libraries:
     * https://CRAN.R-project.org/package=DiceKriging
     * https://CRAN.R-project.org/package=RobustGaSP

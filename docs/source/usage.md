@@ -49,6 +49,29 @@ at $X = \{0.0, 0.25, 0.5, 0.75, 1.0\}$, then predict and simulate in $[0,1]$.
 <img src="img/demo_basic-predict.png" alt="predict" width="100px"/>
 <img src="img/demo_basic-simulate.png" alt="simulate" width="100px"/>
 
+## Large designs
+
+For designs too large for an $O(n^3)$ exact fit, libKriging offers two
+complementary tools:
+
+* [`NestedKriging`](functions/NestedKriging.md) — divide-and-conquer GP: the
+  data are split into groups, one submodel is fitted per group with a common
+  prior, and predictions are aggregated (optimal `NK`, or `PoE`/`gPoE`/`BCM`/
+  `rBCM`). Robust in any input dimension.
+
+  ```python
+  nk = lk.NestedKriging(y, X, "matern5_2", 100, aggregation="NK")
+  mean, stdev = nk.predict(Xt, True)
+  ```
+
+* [`objective="VLL(m)"`](functions/VecchiaLL.md) — fit a plain `Kriging` with
+  the Vecchia approximated log-likelihood ($O(n\,m^3)$ per evaluation). Best
+  for low-to-moderate input dimension ($d \lesssim 5$).
+
+  ```python
+  k = lk.Kriging(y, X, "matern5_2", objective="VLL(30)")
+  ```
+
 ## SciKit-Learn wrapping
 
 Implement a SciKit-Learn `BaseEstimator` around the unified v1.0.0 API:

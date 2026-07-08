@@ -31,6 +31,7 @@ Constructors
    functions/update.MLPKriging.md
    functions/copy.MLPKriging.md
    functions/saveload.MLPKriging.md
+   functions/NestedKriging.md
 
 Fit objective
 -------------
@@ -52,6 +53,7 @@ Fit objective
    functions/fit.MLPKriging.md
    functions/logLikelihood.MLPKriging.md
    functions/logLikelihoodFun.MLPKriging.md
+   functions/VecchiaLL.md
 
 
 Prediction and simulation
@@ -69,4 +71,5 @@ Prediction and simulation
    functions/predict.MLPKriging.md
    functions/simulate.MLPKriging.md
    functions/update_simulate.MLPKriging.md
+   functions/predict.NestedKriging.md
 
