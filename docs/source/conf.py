@@ -30,6 +30,14 @@ intersphinx_disabled_domains = ['std']
 
 templates_path = ['_templates']
 
+# Serve llms.txt at the root of the readthedocs.io domain: Read the Docs
+# copies anything found under html_extra_path straight to the build output
+# root (unlike html_static_path, which lands under /_static/), and serves
+# llms.txt / llms-full.txt found there at https://libkriging.readthedocs.io/llms.txt
+# from the default version. See:
+# https://docs.readthedocs.com/platform/latest/reference/llms-txt.html
+html_extra_path = ['_llms_extra']
+
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'

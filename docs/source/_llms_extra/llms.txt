@@ -1,0 +1,53 @@
+# libKriging
+
+> C++ library for Kriging / Gaussian process regression, with equivalent
+> bindings in Python, R, Octave, MATLAB, and Julia.
+
+libKriging implements ordinary/universal kriging with noise-free, homogeneous
+nugget, or known heteroskedastic-noise fits — all unified under a single
+`Kriging(..., noise=...)` constructor argument, not separate classes — plus
+per-variable input warping (`WarpKriging`, for mixed continuous/categorical/
+ordinal inputs) and joint deep-kernel learning (`MLPKriging`). Large designs
+are handled either by the Vecchia-approximated log-likelihood objective
+(`objective="VLL(m)"`, a plain fit option on `Kriging`/`WarpKriging`) or by
+the divide-and-conquer `NestedKriging` class (PoE/gPoE/BCM/rBCM or the
+interpolating `NK` aggregation). Source and issue tracker:
+https://github.com/libKriging/libKriging.
+
+## Getting started
+
+- [Installation](https://libkriging.readthedocs.io/en/latest/install.html): pip (`pylibkriging`), CRAN/GitHub (`rlibkriging`), prebuilt Octave/MATLAB archives, and Julia source build instructions.
+- [Usage](https://libkriging.readthedocs.io/en/latest/usage.html): the minimal fit → predict → simulate example, shared (modulo syntax) across every binding.
+
+## API reference
+
+- [API overview](https://libkriging.readthedocs.io/en/latest/api.html): per-binding call syntax and the full constructor / fit / predict / simulate function index.
+- [Kriging](https://libkriging.readthedocs.io/en/latest/functions/Kriging.html): the main class — noise-free, nugget, or heteroskedastic-noise kriging.
+- [WarpKriging](https://libkriging.readthedocs.io/en/latest/functions/WarpKriging.html): per-variable input warping for mixed/categorical/ordinal inputs.
+- [MLPKriging](https://libkriging.readthedocs.io/en/latest/functions/MLPKriging.html): joint MLP feature map (deep kernel learning).
+- [NestedKriging](https://libkriging.readthedocs.io/en/latest/functions/NestedKriging.html): divide-and-conquer kriging for large designs.
+- [fit.Kriging](https://libkriging.readthedocs.io/en/latest/functions/fit.Kriging.html), [predict.Kriging](https://libkriging.readthedocs.io/en/latest/functions/predict.Kriging.html), [simulate.Kriging](https://libkriging.readthedocs.io/en/latest/functions/simulate.Kriging.html): fitting objectives (`LL`/`LOO`/`LMP`/`VLL(m)`), prediction, and conditional simulation.
+
+## Mathematical background
+
+- [Kriging models](https://libkriging.readthedocs.io/en/latest/math/KrigingModels.html) and [Kriging steps](https://libkriging.readthedocs.io/en/latest/math/KrigingSteps.html): the ordinary/universal kriging equations libKriging implements.
+- [Kernel functions](https://libkriging.readthedocs.io/en/latest/math/kernel.html): `gauss`, `exp`, `matern3_2`, `matern5_2`.
+- [Trend / regression models](https://libkriging.readthedocs.io/en/latest/math/trend.html): constant, linear, interactive, quadratic.
+- [Likelihood](https://libkriging.readthedocs.io/en/latest/math/likelihood.html) and [leave-one-out](https://libkriging.readthedocs.io/en/latest/math/leaveOneOut.html): the `LL`/`LOO`/`LMP` fit objectives.
+
+## Warping strategies
+
+- [Warping overview](https://libkriging.readthedocs.io/en/latest/warping/index.html): the spec-string vocabulary used by `WarpKriging`.
+- [affine](https://libkriging.readthedocs.io/en/latest/warping/affine.html), [boxcox](https://libkriging.readthedocs.io/en/latest/warping/boxcox.html), [kumaraswamy](https://libkriging.readthedocs.io/en/latest/warping/kumaraswamy.html): continuous-variable warps.
+- [neural_mono](https://libkriging.readthedocs.io/en/latest/warping/neural_mono.html), [mlp](https://libkriging.readthedocs.io/en/latest/warping/mlp.html): learned monotone / joint feature-map warps.
+- [categorical](https://libkriging.readthedocs.io/en/latest/warping/categorical.html), [ordinal](https://libkriging.readthedocs.io/en/latest/warping/ordinal.html): discrete-variable embeddings.
+
+## Noise strategies
+
+- [Noise overview](https://libkriging.readthedocs.io/en/latest/noise/index.html): how to choose between noise-free, nugget, and heteroskedastic fits.
+- [Noise-free](https://libkriging.readthedocs.io/en/latest/noise/noise-free.html), [nugget](https://libkriging.readthedocs.io/en/latest/noise/nugget.html), [heteroskedastic](https://libkriging.readthedocs.io/en/latest/noise/heteroskedastic.html).
+
+## Optional
+
+- [References / bibliography](https://libkriging.readthedocs.io/en/latest/references.html)
+- [GitHub repository](https://github.com/libKriging/libKriging): source, issues, CHANGELOG, `AGENTS.md` build/API guidance for coding agents.
