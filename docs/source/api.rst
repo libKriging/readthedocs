@@ -48,6 +48,8 @@ Fit objective
    functions/logMargPost.Kriging.md
    functions/logMargPostFun.Kriging.md
    functions/vecchia.Kriging.md
+   functions/nystrom.Kriging.md
+   functions/subsetOfData.Kriging.md
    functions/fit.WarpKriging.md
    functions/logLikelihood.WarpKriging.md
    functions/logLikelihoodFun.WarpKriging.md
