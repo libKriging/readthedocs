@@ -51,8 +51,8 @@ at $X = \{0.0, 0.25, 0.5, 0.75, 1.0\}$, then predict and simulate in $[0,1]$.
 
 ## Large designs
 
-For designs too large for an $O(n^3)$ exact fit, libKriging offers two
-complementary tools:
+For designs too large for an $O(n^3)$ exact fit, libKriging offers several
+complementary tools, from the most to the least data-preserving:
 
 * [`NestedKriging`](functions/NestedKriging.md) — divide-and-conquer GP: the
   data are split into groups, one submodel is fitted per group with a common
@@ -72,9 +72,43 @@ complementary tools:
   k = lk.Kriging(y, X, "matern5_2", objective="VLL(30)")
   ```
 
+* [`objective="LLNystrom(k)"`](functions/nystrom.Kriging.md) — fit a plain
+  `Kriging` with a global rank-$k$ Nystrom approximation of the covariance
+  ($O(n\,k^2)$ per evaluation, via the Woodbury identity). A global
+  alternative to Vecchia that does not rely on a nearest-neighbor structure.
+
+  ```python
+  k = lk.Kriging(y, X, "matern5_2", objective="LLNystrom(50)")
+  ```
+
+* [`subsetOfData`](functions/subsetOfData.Kriging.md) — the cheapest option:
+  pick `n_max` representative rows (k-means centroids snapped to real
+  observations) and fit an exact model on them, discarding the other points.
+
+  ```python
+  idx = lk.Kriging.subsetOfData(X, 500)
+  k = lk.Kriging(y[idx], X[idx, :], "matern5_2")
+  ```
+
 ## SciKit-Learn wrapping
 
-Implement a SciKit-Learn `BaseEstimator` around the unified v1.0.0 API:
+Since v1.2.0, `pylibkriging.sklearn` ships ready-made scikit-learn estimators
+for the four model classes — `KrigingRegressor`, `WarpKrigingRegressor`,
+`MLPKrigingRegressor` and `NestedKrigingRegressor` — implementing the
+estimator API (`fit`/`predict`, `get_params`/`set_params`, `clone`), so they
+drop into `Pipeline` and `GridSearchCV`. They need scikit-learn, an optional
+dependency (`pip install pylibkriging[sklearn]`).
+
+```python
+from pylibkriging.sklearn import KrigingRegressor
+
+reg = KrigingRegressor(kernel="matern5_2").fit(X, y)
+mean, std = reg.predict(Xt, return_std=True)
+reg.model_        # the underlying pylibkriging.Kriging (simulate, update, ...)
+```
+
+To write your own wrapper instead, implement a SciKit-Learn `BaseEstimator`
+around the unified API:
 
 ```python
 from sklearn.base import BaseEstimator

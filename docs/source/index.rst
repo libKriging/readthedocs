@@ -26,6 +26,10 @@ Main features of libKriging are:
     * Vecchia approximated log-likelihood as a plain fit objective
       (``objective = "VLL(m)"``), with local prediction and a
       factorization-free "light" mode at C++ level
+    * Nystrom (global low-rank) approximated log-likelihood as a plain fit
+      objective (``objective = "LLNystrom(k)"``), with low-rank prediction,
+      simulation and update
+    * ``subsetOfData``: k-means (or random) pre-fit row-subsetting of large designs
 * Ports and comparisons with established Kriging libraries:
     * https://CRAN.R-project.org/package=DiceKriging
     * https://CRAN.R-project.org/package=RobustGaSP

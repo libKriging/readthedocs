@@ -1,7 +1,7 @@
 (install)=
 # Installation
 
-libKriging v1.0.0 is available through the language-specific bindings below.
+libKriging v1.2.0 is available through the language-specific bindings below.
 
 * **Python** (PyPI)
   ```bash
