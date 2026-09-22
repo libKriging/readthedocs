@@ -24,7 +24,7 @@ Main features of libKriging are:
       optimal (interpolating) nested-kriging aggregation, k-means or random
       partition, WarpKriging submodels supported
     * Vecchia approximated log-likelihood as a plain fit objective
-      (``objective = "VLL(m)"``), with local prediction and a
+      (``objective = "LLVecchia(m)"``), with local prediction and a
       factorization-free "light" mode at C++ level
     * Nystrom (global low-rank) approximated log-likelihood as a plain fit
       objective (``objective = "LLNystrom(k)"``), with low-rank prediction,
@@ -43,7 +43,7 @@ Main features of libKriging are:
     * R: https://github.com/libKriging/rlibkriging
     * Octave
     * Matlab
-    * Julia
+    * Julia: https://github.com/libKriging/JLibKriging.jl
 
 Check out the :doc:`usage` section for further information, and how to :ref:`install` the project.
 

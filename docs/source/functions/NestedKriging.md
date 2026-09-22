@@ -62,9 +62,9 @@ Argument      |Description
 `seed`     |     Integer seed for the partition (and hyper-parameter subsampling), for reproducibility.
 `regmodel`     |     Universal Kriging linear trend. `"NK"` aggregation requires `"constant"`; the PoE family accepts any trend.
 `optim`     |     Optimization method for the submodel hyper-parameters: `"BFGS"` (default) or `"none"`.
-`objective`     |     `"LL"` (default), `"LOO"`, `"LMP"` — or `"VLL(m)"`: the common prior $(\theta, \sigma^2, \beta)$ is then estimated by **one global Vecchia fit** in $O(n\,m^3)$ (cross-group information, one optimization instead of $p$) and every submodel is fitted in closed form on the seeded prior.
+`objective`     |     `"LL"` (default), `"LOO"`, `"LMP"` — or `"LLVecchia(m)"`: the common prior $(\theta, \sigma^2, \beta)$ is then estimated by **one global Vecchia fit** in $O(n\,m^3)$ (cross-group information, one optimization instead of $p$) and every submodel is fitted in closed form on the seeded prior.
 `parameters`     |     Initial or fixed values for the hyper-parameters (named list with `"sigma2"`, `"theta"`, `"beta"`).
-`warping`     |     Optional per-dimension warp specs (see [`WarpKriging`](WarpKriging)); submodels are then `WarpKriging` sharing a common warped prior $\sigma^2 k(\Phi(x), \Phi(x'))$, with $(\theta, \text{warp})$ estimated by a single reference fit on a global subsample. Not compatible with `objective="VLL(m)"`.
+`warping`     |     Optional per-dimension warp specs (see [`WarpKriging`](WarpKriging)); submodels are then `WarpKriging` sharing a common warped prior $\sigma^2 k(\Phi(x), \Phi(x'))$, with $(\theta, \text{warp})$ estimated by a single reference fit on a global subsample. Not compatible with `objective="LLVecchia(m)"`.
 
 
 ## Details

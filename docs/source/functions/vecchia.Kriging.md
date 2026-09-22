@@ -1,4 +1,4 @@
-# Vecchia approximated log-likelihood (`objective="VLL(m)"`)
+# Vecchia approximated log-likelihood (`objective="LLVecchia(m)"`)
 
 
 ## Description
@@ -28,22 +28,22 @@ Simply pass the objective string — it works unchanged in every binding:
 
 * Python
     ```python
-    k = Kriging(y, X, kernel="matern5_2", objective="VLL(30)")
+    k = Kriging(y, X, kernel="matern5_2", objective="LLVecchia(30)")
     ```
 * R
     ```r
-    k <- Kriging(y, X, kernel = "matern5_2", objective = "VLL(30)")
+    k <- Kriging(y, X, kernel = "matern5_2", objective = "LLVecchia(30)")
     ```
 * Matlab/Octave
     ```octave
-    k = Kriging(y, X, "matern5_2", "none", [], "constant", false, "BFGS", "VLL(30)")
+    k = Kriging(y, X, "matern5_2", "constant", false, "BFGS", "LLVecchia(30)")
     ```
 * Julia
     ```julia
-    k = Kriging(y, X, "matern5_2"; objective="VLL(30)")
+    k = Kriging(y, X, "matern5_2"; objective="LLVecchia(30)")
     ```
 
-`objective="VLL"` uses the default $m = 30$ neighbors.
+`objective="LLVecchia"` uses the default $m = 30$ neighbors.
 
 
 ## Details
@@ -54,7 +54,7 @@ Simply pass the objective string — it works unchanged in every binding:
   fit is $\sim$6x faster than the exact `"LL"` fit and a single likelihood
   evaluation $\sim$18x faster; the gap grows with $n$. In higher dimension,
   prefer [`NestedKriging`](NestedKriging), which is dimension-robust — the
-  two combine: `NestedKriging(..., objective="VLL(m)")` estimates the common
+  two combine: `NestedKriging(..., objective="LLVecchia(m)")` estimates the common
   prior with one global Vecchia fit.
 * **Choosing `m`.** $m \in [15, 50]$ is typical; the estimation quality of
   $\theta$ converges quickly with $m$ (exact at $m = n-1$).
@@ -75,13 +75,13 @@ set.seed(123)
 X <- matrix(runif(2 * 2000), ncol = 2)
 y <- f(X)
 
-t_vll <- system.time(k_vll <- Kriging(y, X, kernel = "matern5_2", objective = "VLL(30)"))
+t_llvecchia <- system.time(k_llvecchia <- Kriging(y, X, kernel = "matern5_2", objective = "LLVecchia(30)"))
 t_ll  <- system.time(k_ll  <- Kriging(y, X, kernel = "matern5_2", objective = "LL"))
-c(vll = t_vll["elapsed"], ll = t_ll["elapsed"])
+c(llvecchia = t_llvecchia["elapsed"], ll = t_ll["elapsed"])
 
 # both models use the exact predictor at their own theta*
 x <- matrix(runif(2 * 100), ncol = 2)
-max(abs(predict(k_vll, x)$mean - predict(k_ll, x)$mean))
+max(abs(predict(k_llvecchia, x)$mean - predict(k_ll, x)$mean))
 ```
 
 

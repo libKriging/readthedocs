@@ -64,12 +64,12 @@ complementary tools, from the most to the least data-preserving:
   mean, stdev = nk.predict(Xt, True)
   ```
 
-* [`objective="VLL(m)"`](functions/vecchia.Kriging.md) — fit a plain `Kriging`
+* [`objective="LLVecchia(m)"`](functions/vecchia.Kriging.md) — fit a plain `Kriging`
   with the Vecchia approximated log-likelihood ($O(n\,m^3)$ per evaluation).
   Best for low-to-moderate input dimension ($d \lesssim 5$).
 
   ```python
-  k = lk.Kriging(y, X, "matern5_2", objective="VLL(30)")
+  k = lk.Kriging(y, X, "matern5_2", objective="LLVecchia(30)")
   ```
 
 * [`objective="LLNystrom(k)"`](functions/nystrom.Kriging.md) — fit a plain
